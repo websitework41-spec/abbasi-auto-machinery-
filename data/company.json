@@ -1,0 +1,85 @@
+{
+  "bank": {
+    "name": "Gunma Bank (群馬銀行)",
+    "branch": "Oura Town Branch / Oura Machi Branch (No. 233)",
+    "accountType": "Regular Account (普通)",
+    "accountNo": "0632572",
+    "swift": "GUNMAJPT (GUNMA JPT)",
+    "beneficiary": "ABBASI TRADING LLC",
+    "surchargeNote": "A standard fee of USD 25 must be remitted over the invoice total to cover receiving bank charges in Japan.",
+    "verificationNote": "Please verify all vehicle chassis numbers and remittance instructions before proceeding with payment."
+  },
+  "terms": [
+    [
+      "1",
+      "Payment Terms & Advance",
+      [
+        "Advance Remittance: Full payment must be transferred in advance to the designated seller bank account.",
+        "Payment Reference: The Proforma Invoice (PI) number must be clearly quoted in the transfer instructions.",
+        "Transfer Confirmation: Proof of transfer (TT / SWIFT copy) must be submitted immediately upon payment."
+      ]
+    ],
+    [
+      "2",
+      "Bank Charges & Fees",
+      [
+        "Buyer Liability: All remittance, intermediary, receiving, and currency conversion fees are borne by the buyer/consignee.",
+        "Fixed Banking Surcharge: A standard fee of USD 25 must be remitted over the invoice total to cover receiving bank charges in Japan."
+      ]
+    ],
+    [
+      "3",
+      "Allocation & Stock Availability",
+      [
+        "Payment Prioritization: Vehicle booking is finalized solely upon receipt of cleared full payment.",
+        "Prior Sale: Units are subject to prior sale. If a unit is sold before full funds clear, an equivalent vehicle cannot be guaranteed at the same quoted price."
+      ]
+    ],
+    [
+      "4",
+      "Shipping & Transfer of Risk",
+      [
+        "Carrier Terms: Shipping is arranged subject to the carrier’s terms once full payment has cleared.",
+        "Passing of Risk: Risk of loss, damage, or theft transfers to the buyer upon delivery to the carrier / terminal facility.",
+        "Transit & Delays: The seller is not liable for carrier schedule changes, port delays, theft, or transit damage."
+      ]
+    ],
+    [
+      "5",
+      "Export Documentation",
+      [
+        "Document Release: Original shipping and export documents (B/L, Export Certificate) are issued and dispatched only after 100% invoice settlement.",
+        "Third-Party Liability: The seller is not liable for losses or demurrage from delayed, retained, or lost documents handled by couriers or authorities."
+      ]
+    ],
+    [
+      "6",
+      "Customs, Taxes & Compliance",
+      [
+        "Duties & Taxes: Customs clearance, tariffs, and local port taxes are the exclusive responsibility of the buyer.",
+        "Import Compliance: The buyer must ensure compliance with destination country laws (age limits, drive side, standards). The buyer indemnifies the seller against any denied entry or regulatory penalties."
+      ]
+    ],
+    [
+      "7",
+      "Cancellation & Default",
+      [
+        "Non-Cancellable: Orders become strictly non-cancellable once shipping has been booked.",
+        "Default & Resale: Failure to pay the full invoice before vessel arrival constitutes default. The seller reserves the right to resell the unit and reallocate funds to cover expenses."
+      ]
+    ],
+    [
+      "8",
+      "\"AS-IS, WHERE-IS\" Disclaimer",
+      [
+        "No Warranties: Vehicles are sold strictly \"AS-IS, WHERE-IS\" without express or implied warranty of condition, roadworthiness, fitness for purpose, or mechanical state.",
+        "Mileage & Maintenance: No warranty is made regarding odometer accuracy. Vehicles may require servicing or repairs at the buyer’s cost."
+      ]
+    ]
+  ],
+  "accept": "Remitting payment, confirming this proforma, or acting on this invoice constitutes full, irrevocable acceptance of all terms, conditions, and disclaimers specified above.",
+  "pay": "T/T (Telegraphic Transfer) · 100% Advance T/T",
+  "cur": "USD ($)",
+  "trade": "FOB / CIF / C&F (as agreed)",
+  "ship": "RORO (Roll-on/roll-off) & Container"
+}

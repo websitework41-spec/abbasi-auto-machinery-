@@ -1,0 +1,2784 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Abbasi Auto Machinery · Admin Management Portal</title>
+  <link rel="stylesheet" href="fonts.css" />
+  <style>
+    :root {
+      /* Soothing Eye-Friendly Slate-Charcoal Canvas (0% harsh blue glare) */
+      --navy: #0B0F19;          /* Soothing deep obsidian-charcoal canvas */
+      --navy-card: #131926;     /* Matte dark slate card surface */
+      --navy-card2: #1B2234;    /* Elevated surface for inputs, buttons & panels */
+      --navy-border: rgba(255, 255, 255, 0.08);
+      --navy-hover: rgba(255, 212, 0, 0.05);
+      
+      /* Signature Brand Gold - Direct from website */
+      --gold: #FFD400;
+      --gold-dark: #D4AF00;
+      --gold-glow: rgba(255, 212, 0, 0.2);
+      
+      /* High-Readability, Low Eye-Strain Typography */
+      --text: #F8FAFC;
+      --text-muted: #8896AB;
+      
+      /* Rich Semantic Colors Matching Public Website */
+      --success: #10B981;       /* Emerald: Available stock, Active staff */
+      --warning: #F59E0B;       /* Amber: Reserved stock, Supervision alerts */
+      --danger: #EF4444;        /* Ruby: Sold units, Delete actions */
+      --purple: #8B5CF6;        /* Royal Violet: Invoicing, Billing, Proforma */
+      --teal: #14B8A6;          /* Teal: Logistics & Shipping */
+      --orange: #F97316;        /* Tangerine: Quotation Leads */
+      --info: #F59E0B;          /* Replaced harsh electric blue with warm amber */
+      
+      --font-heading: 'Poppins', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+
+    /* Topbar */
+    .topbar {
+      height: 70px;
+      background: var(--navy-card);
+      border-bottom: 1px solid var(--navy-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar__brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .topbar__logo {
+      height: 38px;
+      width: auto;
+      border-radius: 6px;
+    }
+    .topbar__title {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .topbar__badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .server-status {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .server-status.offline {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: #FBBF24;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 8px currentColor;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 38px;
+      padding: 0 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn--primary {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .btn--primary:hover {
+      background: #FFE033;
+      box-shadow: 0 4px 15px var(--gold-glow);
+    }
+    .btn--secondary {
+      background: var(--navy-card2);
+      color: var(--text);
+      border-color: var(--navy-border);
+    }
+    .btn--secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--gold);
+      border-color: rgba(255, 212, 0, 0.4);
+    }
+    .btn--outline:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn--danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .btn--danger:hover {
+      background: var(--danger);
+      color: #fff;
+    }
+    .btn--sm {
+      height: 30px;
+      padding: 0 10px;
+      font-size: 12px;
+    }
+
+    /* Layout */
+    .layout {
+      display: flex;
+      flex: 1;
+    }
+    .sidebar {
+      width: 240px;
+      background: var(--navy-card);
+      border-right: 1px solid var(--navy-border);
+      padding: 24px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+      font-weight: 500;
+      font-size: 13.5px;
+      transition: all 0.2s ease;
+    }
+    .nav-item:hover {
+      background: var(--navy-hover);
+      color: var(--text);
+    }
+    .nav-item.active {
+      background: var(--navy-card2);
+      color: var(--gold);
+      border-left: 3px solid var(--gold);
+      font-weight: 600;
+    }
+    .nav-item svg {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+    }
+    .nav-item .badge {
+      margin-left: auto;
+      background: rgba(255, 212, 0, 0.15);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .main {
+      flex: 1;
+      padding: 28px 32px;
+      overflow-y: auto;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Tab Panels */
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .section-title h1 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    /* KPI Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+    .stat-card--gold::after { background: var(--gold); }
+    .stat-card--emerald::after { background: #10B981; }
+    .stat-card--amber::after { background: #F59E0B; }
+    .stat-card--violet::after { background: #8B5CF6; }
+    .stat-card--teal::after { background: #14B8A6; }
+    .stat-card--orange::after { background: #F97316; }
+    .stat-card__label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .stat-card__val {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .stat-card__sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Tables */
+    .card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .card__header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--navy-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .card__title {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* Filters Bar */
+    .filters-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 16px 20px;
+      background: rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid var(--navy-border);
+    }
+    .search-input {
+      flex: 1 1 240px;
+      height: 38px;
+      background: var(--navy-card2);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-sm);
+      padding: 0 14px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--gold);
+    }
+    .select-input {
+      height: 38px;
+      background: var(--navy-card2);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-sm);
+      padding: 0 12px;
+      font-size: 13px;
+      outline: none;
+      cursor: pointer;
+    }
+    .select-input option {
+      background: var(--navy-card2);
+      color: #fff;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+    th {
+      background: #171E2D;
+      padding: 12px 16px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--navy-border);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      vertical-align: middle;
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .veh-thumb {
+      width: 58px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: block;
+    }
+    .veh-title {
+      font-weight: 600;
+      color: #fff;
+    }
+    .veh-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* Badges */
+    .pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    .pill--available { background: rgba(16, 185, 129, 0.14); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.28); }
+    .pill--new { background: var(--gold); color: #0A0F24; font-weight: 700; border: 1px solid var(--gold); }
+    .pill--reserved { background: rgba(245, 158, 11, 0.14); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.28); }
+    .pill--sold { background: rgba(239, 68, 68, 0.14); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.28); }
+    .pill--cat { background: rgba(255, 212, 0, 0.1); color: var(--gold); border: 1px solid rgba(255, 212, 0, 0.25); }
+    .pill--role { background: rgba(255, 212, 0, 0.12); color: var(--gold); border: 1px solid rgba(255, 212, 0, 0.3); }
+    .pill--active { background: rgba(16, 185, 129, 0.14); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.28); }
+    .pill--leave { background: rgba(245, 158, 11, 0.14); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.28); }
+    .pill--inactive { background: rgba(148, 163, 184, 0.12); color: #94A3B8; border: 1px solid rgba(148, 163, 184, 0.2); }
+    .pill--cat-inventory { background: rgba(245, 158, 11, 0.14); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.28); }
+    .pill--cat-invoicing { background: rgba(139, 92, 246, 0.14); color: #C084FC; border: 1px solid rgba(139, 92, 246, 0.28); }
+    .pill--cat-leads { background: rgba(249, 115, 22, 0.14); color: #FB923C; border: 1px solid rgba(249, 115, 22, 0.28); }
+    .pill--cat-staff { background: rgba(16, 185, 129, 0.14); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.28); }
+    .pill--cat-settings { background: rgba(255, 212, 0, 0.14); color: var(--gold); border: 1px solid rgba(255, 212, 0, 0.28); }
+    .pill--cat-yard { background: rgba(20, 184, 166, 0.14); color: #2DD4BF; border: 1px solid rgba(20, 184, 166, 0.28); }
+    .pill--cat-sales { background: rgba(249, 115, 22, 0.14); color: #FB923C; border: 1px solid rgba(249, 115, 22, 0.28); }
+
+    /* Staff & Employee Grid */
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .staff-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .staff-card:hover {
+      border-color: rgba(255, 212, 0, 0.35);
+      transform: translateY(-2px);
+    }
+    .staff-card__head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .staff-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: var(--navy-card2);
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+    .staff-info h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .staff-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .staff-perms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+    .perm-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 2px 7px;
+      border-radius: 6px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Live Sync Banner */
+    .sync-banner {
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.12) 0%, rgba(255, 212, 0, 0.08) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .sync-banner__info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sync-pulse {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 10px #10B981;
+      animation: pulseSync 2s infinite;
+    }
+    @keyframes pulseSync {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.9); }
+    }
+
+    /* Permission Checkbox Grid */
+    .perm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .perm-check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      cursor: pointer;
+    }
+    .perm-check-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .action-btns {
+      display: flex;
+      gap: 6px;
+    }
+
+    /* Form Styles */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      padding: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .form-control {
+      height: 40px;
+      background: var(--navy-card2);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-sm);
+      padding: 0 14px;
+      color: #fff;
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--gold);
+    }
+    textarea.form-control {
+      height: 90px;
+      padding: 10px 14px;
+      resize: vertical;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+    .modal {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 820px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+    .modal__head {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--navy-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal__title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .modal__close {
+      background: transparent;
+      border: 0;
+      font-size: 22px;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal__close:hover { color: #fff; }
+    .modal__body {
+      padding: 20px 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .modal__foot {
+      padding: 16px 24px;
+      border-top: 1px solid var(--navy-border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    /* Image Preview in Modal */
+    .img-upload-box {
+      border: 2px dashed var(--navy-border);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: rgba(0, 0, 0, 0.15);
+    }
+    .img-upload-box:hover {
+      border-color: var(--gold);
+      background: rgba(255, 212, 0, 0.03);
+    }
+    .img-preview {
+      max-height: 180px;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+      margin-top: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--navy-card2);
+      border: 1px solid var(--gold);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 860px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; border-right: 0; border-bottom: 1px solid var(--navy-border); }
+      .main { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar__brand">
+      <img src="logo-light.png" alt="Abbasi Auto Machinery" class="topbar__logo" />
+      <div class="topbar__title">
+        Abbasi Auto Machinery
+        <span class="topbar__badge">Admin Portal</span>
+      </div>
+    </div>
+    <div class="topbar__actions">
+      <div style="display:flex; align-items:center; gap:8px; background:rgba(0,0,0,0.25); padding:4px 12px; border-radius:999px; border:1px solid var(--navy-border);">
+        <img id="topbar-user-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=AliAnwar" style="width:24px; height:24px; border-radius:50%; object-fit:cover;" alt="User Avatar" />
+        <span style="font-size:12px; color:var(--text-muted);">Acting Staff:</span>
+        <select id="active-user-select" class="select-input" style="height:26px; padding:0 8px; font-size:12px; font-weight:600; border:0; background:transparent; color:#fff;" onchange="switchActiveUser(this.value)">
+          <option value="emp-001">Ali Anwar (Super Admin)</option>
+        </select>
+      </div>
+      <div class="server-status" id="server-status-pill">
+        <span class="status-dot"></span>
+        <span id="server-status-text">Checking server...</span>
+      </div>
+      <a href="index.html" target="_blank" class="btn btn--outline btn--sm">
+        View Website ↗
+      </a>
+      <a href="invoice.html" target="_blank" class="btn btn--secondary btn--sm">
+        📄 Invoicing ↗
+      </a>
+      <button class="btn btn--primary btn--sm" id="btn-sync-all">
+        💾 Save All to Disk
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <button class="nav-item active" data-tab="tab-dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Dashboard
+      </button>
+      <button class="nav-item" data-tab="tab-inventory">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6"></path></svg>
+        Inventory Catalog
+        <span class="badge" id="sidebar-inv-count">0</span>
+      </button>
+      <button class="nav-item" data-tab="tab-employees">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Staff & Employees
+        <span class="badge" id="sidebar-emp-count" style="background:rgba(16,185,129,0.18); color:#34D399;">5</span>
+      </button>
+      <button class="nav-item" data-tab="tab-audit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        Supervision & Audit
+        <span class="badge" id="sidebar-audit-count" style="background:rgba(245,158,11,0.18); color:#FBBF24;">Logs</span>
+      </button>
+      <button class="nav-item" data-tab="tab-inquiries">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        Leads & Inquiries
+        <span class="badge" id="sidebar-inq-count">0</span>
+      </button>
+      <button class="nav-item" data-tab="tab-invoices">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Commercial Invoices
+        <span class="badge" style="background:rgba(139,92,246,0.18); color:#C084FC;">Proforma</span>
+      </button>
+      <button class="nav-item" data-tab="tab-company">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="21" width="18" height="2"></rect><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path><path d="M9 9h1"></path><path d="M9 13h1"></path><path d="M9 17h1"></path><path d="M14 9h1"></path><path d="M14 13h1"></path><path d="M14 17h1"></path></svg>
+        Company & Bank
+      </button>
+      <button class="nav-item" data-tab="tab-backup">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Import & Export
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+      <!-- TAB 1: DASHBOARD -->
+      <section class="tab-panel active" id="tab-dashboard">
+        <div class="section-header">
+          <div class="section-title">
+            <h1>Management Overview</h1>
+            <p>Real-time inventory and quotation inquiry metrics for Abbasi Auto Machinery.</p>
+          </div>
+          <button class="btn btn--primary" onclick="openAddModal()">
+            + Add New Listing
+          </button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card stat-card--gold">
+            <span class="stat-card__label">Total Inventory Units</span>
+            <span class="stat-card__val" id="kpi-total">0</span>
+            <span class="stat-card__sub">Across all categories</span>
+          </div>
+          <div class="stat-card stat-card--emerald">
+            <span class="stat-card__label">Passenger Cars</span>
+            <span class="stat-card__val" id="kpi-cars">0</span>
+            <span class="stat-card__sub">Sedans, SUVs, Hybrids</span>
+          </div>
+          <div class="stat-card stat-card--amber">
+            <span class="stat-card__label">Trucks & Commercial</span>
+            <span class="stat-card__val" id="kpi-trucks">0</span>
+            <span class="stat-card__sub">4-Ton, Dump, Prime Movers</span>
+          </div>
+          <div class="stat-card stat-card--orange">
+            <span class="stat-card__label">Heavy Machinery</span>
+            <span class="stat-card__val" id="kpi-machinery">0</span>
+            <span class="stat-card__sub">Excavators & Earthmovers</span>
+          </div>
+          <div class="stat-card stat-card--teal">
+            <span class="stat-card__label">Inquiries Received</span>
+            <span class="stat-card__val" id="kpi-inquiries" style="color:var(--gold);">0</span>
+            <span class="stat-card__sub">Proforma quote requests</span>
+          </div>
+          <div class="stat-card stat-card--violet" style="cursor:pointer;" onclick="switchTab('tab-invoices')">
+            <span class="stat-card__label">Commercial Invoices</span>
+            <span class="stat-card__val" style="color:#A78BFA; font-size:24px;">📄 Billing</span>
+            <span class="stat-card__sub">Launch Proforma Generator &rarr;</span>
+          </div>
+          <div class="stat-card stat-card--emerald" style="cursor:pointer;" onclick="switchTab('tab-employees')">
+            <span class="stat-card__label">Staff & Roles</span>
+            <span class="stat-card__val" id="kpi-staff" style="color:#34D399; font-size:26px;">5 Active</span>
+            <span class="stat-card__sub">Employee management &rarr;</span>
+          </div>
+          <div class="stat-card stat-card--amber" style="cursor:pointer;" onclick="switchTab('tab-audit')">
+            <span class="stat-card__label">Supervision Trail</span>
+            <span class="stat-card__val" id="kpi-audit-count" style="color:#FBBF24; font-size:26px;">5 Events</span>
+            <span class="stat-card__sub">Employee activity tracking &rarr;</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">Recent Customer Inquiries</h2>
+            <button class="btn btn--secondary btn--sm" onclick="switchTab('tab-inquiries')">View All Inquiries →</button>
+          </div>
+          <div class="table-wrap">
+            <table id="dash-inq-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Customer</th>
+                  <th>Subject / Vehicle</th>
+                  <th>Destination</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="dash-inq-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: INVENTORY CATALOG -->
+      <section class="tab-panel" id="tab-inventory">
+        <div class="section-header">
+          <div class="section-title">
+            <h1>Vehicle & Machinery Inventory</h1>
+            <p>Add, edit, remove, and manage all export listings and vehicle specifications.</p>
+          </div>
+          <button class="btn btn--primary" onclick="openAddModal()">
+            + Add New Listing
+          </button>
+        </div>
+
+        <!-- Live Website Sync Banner -->
+        <div class="sync-banner">
+          <div class="sync-banner__info">
+            <span class="sync-pulse"></span>
+            <div>
+              <strong style="color:#fff; font-size:14px;">Website Inventory Live Sync: ACTIVE &amp; CONNECTED</strong>
+              <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">
+                Stock listings updated here automatically sync to <a href="index.html" target="_blank" style="color:var(--gold); text-decoration:underline;">index.html</a> on your local server.
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <span id="sync-timestamp" style="font-size:12.5px; color:#34D399; font-weight:600;">🟢 Live Catalog Synced</span>
+            <button class="btn btn--secondary btn--sm" onclick="forceSyncWebsite()">
+              ⚡ Force Sync Website
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="filters-bar">
+            <input type="text" class="search-input" id="inv-search" placeholder="Search by Stock ID, Make, Model, or Origin..." oninput="renderInventory()" />
+            <select class="select-input" id="inv-filter-cat" onchange="renderInventory()">
+              <option value="all">All Categories</option>
+              <option value="cars">Passenger Cars</option>
+              <option value="trucks">Commercial Trucks</option>
+              <option value="machinery">Heavy Machinery</option>
+            </select>
+            <select class="select-input" id="inv-filter-status" onchange="renderInventory()">
+              <option value="all">All Statuses</option>
+              <option value="Available">Available</option>
+              <option value="New Arrival">New Arrival</option>
+              <option value="Reserved">Reserved</option>
+              <option value="Sold">Sold</option>
+            </select>
+            <select class="select-input" id="inv-filter-origin" onchange="renderInventory()">
+              <option value="all">All Origins</option>
+              <option value="Japan">Japan</option>
+              <option value="United Arab Emirates">UAE (Dubai)</option>
+              <option value="Germany">Germany</option>
+              <option value="China">China</option>
+              <option value="South Korea">South Korea</option>
+            </select>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Stock ID</th>
+                  <th>Vehicle / Unit</th>
+                  <th>Year</th>
+                  <th>Mileage / Hours</th>
+                  <th>Transmission / Engine</th>
+                  <th>Origin</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inv-tbody">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: EMPLOYEE MANAGEMENT -->
+      <section class="tab-panel" id="tab-employees">
+        <div class="section-header">
+          <div class="section-title">
+            <h1>Staff Profiles & Role Permissions</h1>
+            <p>Manage export officers, yard inspectors, and administrators with granular security permissions.</p>
+          </div>
+          <button class="btn btn--primary" onclick="openAddEmployeeModal()">
+            + Add New Employee Profile
+          </button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-card__label">Total Staff Members</span>
+            <span class="stat-card__val" id="emp-stat-total">0</span>
+            <span class="stat-card__sub">Across all departments</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Active On Duty</span>
+            <span class="stat-card__val" id="emp-stat-active" style="color:#10B981;">0</span>
+            <span class="stat-card__sub">Authorized system users</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Gunma Yard & Inspection</span>
+            <span class="stat-card__val" id="emp-stat-yard" style="color:var(--gold);">0</span>
+            <span class="stat-card__sub">Physical stock inspectors</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Export Sales Desk</span>
+            <span class="stat-card__val" id="emp-stat-sales" style="color:#A78BFA;">0</span>
+            <span class="stat-card__sub">International customer desk</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="filters-bar">
+            <input type="text" class="search-input" id="emp-search" placeholder="Search staff by name, email, role, or department..." oninput="renderEmployees()" />
+            <select class="select-input" id="emp-filter-dept" onchange="renderEmployees()">
+              <option value="all">All Departments</option>
+              <option value="Executive Management">Executive Management</option>
+              <option value="Gunma Yard & Inspection">Gunma Yard & Inspection</option>
+              <option value="International Sales">International Sales</option>
+              <option value="Yokohama / Kobe Port Logistics">Port Logistics</option>
+            </select>
+            <select class="select-input" id="emp-filter-status" onchange="renderEmployees()">
+              <option value="all">All Statuses</option>
+              <option value="Active">Active</option>
+              <option value="On Leave">On Leave</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Staff Profile</th>
+                  <th>Contact Info</th>
+                  <th>Role</th>
+                  <th>Department</th>
+                  <th>Status</th>
+                  <th>Permissions Summary</th>
+                  <th>Last Active</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="emp-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: EMPLOYEE SUPERVISION & AUDIT LOGS -->
+      <section class="tab-panel" id="tab-audit">
+        <div class="section-header">
+          <div class="section-title">
+            <h1>Employee Supervision & Audit Logs</h1>
+            <p>Immutable activity tracking recording every inventory change, proforma generation, status update, and staff action.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn--secondary btn--sm" onclick="exportAuditCSV()">
+              📥 Export Audit CSV
+            </button>
+            <button class="btn btn--secondary btn--sm" onclick="loadAuditLogs()">
+              🔄 Refresh Activity
+            </button>
+            <button class="btn btn--danger btn--sm" onclick="clearAuditLogs()">
+              🧹 Clear History
+            </button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-card__label">Logged Actions</span>
+            <span class="stat-card__val" id="audit-stat-today">0</span>
+            <span class="stat-card__sub">Supervised events</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Active Supervisors & Staff</span>
+            <span class="stat-card__val" id="audit-stat-staff" style="color:#34D399;">0</span>
+            <span class="stat-card__sub">Users with tracked activity</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Stock Updates Audited</span>
+            <span class="stat-card__val" id="audit-stat-inv" style="color:#FBBF24;">0</span>
+            <span class="stat-card__sub">Listing & status changes</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Audit Integrity</span>
+            <span class="stat-card__val" style="color:var(--gold); font-size:22px;">🛡️ Verified</span>
+            <span class="stat-card__sub">100% Tamper-evident trail</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="filters-bar">
+            <input type="text" class="search-input" id="audit-search" placeholder="Search by staff name, stock ID, action, or target item..." oninput="renderAuditLogs()" />
+            <select class="select-input" id="audit-filter-emp" onchange="renderAuditLogs()">
+              <option value="all">All Employees</option>
+              <!-- Populated dynamically -->
+            </select>
+            <select class="select-input" id="audit-filter-cat" onchange="renderAuditLogs()">
+              <option value="all">All Categories</option>
+              <option value="Inventory">Inventory</option>
+              <option value="Yard & Inspection">Yard & Inspection</option>
+              <option value="Invoicing">Invoicing</option>
+              <option value="Leads">Leads & Inquiries</option>
+              <option value="Staff">Staff Management</option>
+              <option value="Settings">Settings & Bank</option>
+            </select>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Staff Member</th>
+                  <th>Category</th>
+                  <th>Action Performed</th>
+                  <th>Target Item / Description</th>
+                  <th>Client / Device</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="audit-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: LEADS & INQUIRIES -->
+      <section class="tab-panel" id="tab-inquiries">
+        <div class="section-header">
+          <div class="section-title">
+            <h1>Quotation Inquiries & Leads</h1>
+            <p>Customer proforma invoice requests submitted through your website contact forms.</p>
+          </div>
+          <button class="btn btn--secondary" onclick="openAddInquiryModal()">
+            + Log Manual Inquiry
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="filters-bar">
+            <input type="text" class="search-input" id="inq-search" placeholder="Search by customer name, email, country, or vehicle..." oninput="renderInquiries()" />
+            <select class="select-input" id="inq-filter-status" onchange="renderInquiries()">
+              <option value="all">All Statuses</option>
+              <option value="New">New</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Quoted">Quoted</option>
+              <option value="Closed">Closed</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Customer Info</th>
+                  <th>Interested Vehicle</th>
+                  <th>Destination Port</th>
+                  <th>Notes / Request</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inq-tbody">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: COMMERCIAL INVOICES -->
+      <section class="tab-panel" id="tab-invoices">
+        <div class="section-header">
+          <div class="section-title">
+            <h1>Commercial Invoice & Proforma System</h1>
+            <p>Generate, issue, and manage official export documentation and Proforma Invoices for Abbasi Trading LLC.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn--secondary" onclick="reloadInvoiceFrame()">
+              🔄 Reload Invoice Frame
+            </button>
+            <a href="invoice.html" target="_blank" class="btn btn--primary">
+              Open Fullscreen Window ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:0; overflow:hidden; border:1px solid var(--navy-border); background:#ffffff; border-radius:var(--radius); box-shadow:var(--shadow);">
+          <div style="background:var(--navy-card2); padding:10px 16px; border-bottom:1px solid var(--navy-border); display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--text-muted);">
+            <span>🔒 Abbasi Trading LLC &middot; Commercial Invoice System (AES-256 Protected)</span>
+            <a href="invoice.html" target="_blank" style="color:var(--gold); font-weight:600;">Open external tab &rarr;</a>
+          </div>
+          <iframe id="invoice-frame" src="invoice.html" style="width:100%; height:900px; border:0; display:block;" title="Commercial Invoice System"></iframe>
+        </div>
+      </section>
+
+      <!-- TAB 4: COMPANY & BANK SETTINGS -->
+      <section class="tab-panel" id="tab-company">
+        <div class="section-header">
+          <div class="section-title">
+            <h1>Company Profile & Bank Wire Instructions</h1>
+            <p>Manage your official Gunma Bank remittance details, export desk contacts, and trade terms.</p>
+          </div>
+          <button class="btn btn--primary" onclick="saveCompanySettings()">
+            Save Company Settings
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">Official Bank Remittance Details (Japan T/T)</h2>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Beneficiary Name</label>
+              <input type="text" class="form-control" id="bank-beneficiary" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Bank Name</label>
+              <input type="text" class="form-control" id="bank-name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Branch Name & Branch No.</label>
+              <input type="text" class="form-control" id="bank-branch" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Account Type</label>
+              <input type="text" class="form-control" id="bank-accountType" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Account Number</label>
+              <input type="text" class="form-control" id="bank-accountNo" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">SWIFT Code</label>
+              <input type="text" class="form-control" id="bank-swift" />
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Receiving Bank Surcharge Notice</label>
+              <input type="text" class="form-control" id="bank-surcharge" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">Export Desk Contact & Trade Policies</h2>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">WhatsApp Contact Number</label>
+              <input type="text" class="form-control" id="cp-wa" placeholder="+81 90-1765-5641" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Official Inquiry Email</label>
+              <input type="email" class="form-control" id="cp-mail" placeholder="abbasiautomachinery@gmail.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Payment Terms</label>
+              <input type="text" class="form-control" id="cp-pay" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Trade Incoterms</label>
+              <input type="text" class="form-control" id="cp-trade" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Loading & Shipment Ports</label>
+              <input type="text" class="form-control" id="cp-ship" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Settlement Currency</label>
+              <input type="text" class="form-control" id="cp-cur" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: BACKUP & DATA TOOLS -->
+      <section class="tab-panel" id="tab-backup">
+        <div class="section-header">
+          <div class="section-title">
+            <h1>Import, Export & Data Backups</h1>
+            <p>Download full inventory backups in CSV / Excel or JSON, or import bulk data.</p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card" style="cursor:pointer;" onclick="exportCSV()">
+            <span class="stat-card__label">Export to CSV / Excel</span>
+            <span class="stat-card__val" style="font-size:22px; color:var(--gold);">📥 Download CSV</span>
+            <span class="stat-card__sub">Open and edit with Excel / Google Sheets</span>
+          </div>
+          <div class="stat-card" style="cursor:pointer;" onclick="exportJSON()">
+            <span class="stat-card__label">Export to JSON</span>
+            <span class="stat-card__val" style="font-size:22px; color:#C084FC;">📥 Download JSON</span>
+            <span class="stat-card__sub">Complete raw structured data snapshot</span>
+          </div>
+          <div class="stat-card" style="cursor:pointer;" onclick="document.getElementById('file-import').click()">
+            <span class="stat-card__label">Import Inventory</span>
+            <span class="stat-card__val" style="font-size:22px; color:#34D399;">📤 Upload File</span>
+            <span class="stat-card__sub">Supports JSON or CSV files</span>
+            <input type="file" id="file-import" accept=".json,.csv" style="display:none;" onchange="handleFileImport(event)" />
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">Local Host & Disk Sync Guide</h2>
+          </div>
+          <div style="padding:20px; line-height:1.7; color:var(--text-muted);">
+            <p><strong>1. Live Editing on Localhost:</strong> Any edits or new vehicles added in this admin panel update both your browser storage and write directly to your project files on disk when the server is active.</p>
+            <p><strong>2. Immediate Website Preview:</strong> Refresh your main site at <a href="http://localhost:8000" target="_blank">http://localhost:8000</a> at any time to verify changes live before deployment.</p>
+            <p><strong>3. Deploying to Hostinger:</strong> Whenever you are satisfied with your listings, you can ask Antigravity to commit and push the repository to GitHub. Hostinger will automatically update the live site within two minutes!</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ADD / EDIT VEHICLE MODAL -->
+  <div class="modal-backdrop" id="veh-modal">
+    <div class="modal">
+      <div class="modal__head">
+        <h2 class="modal__title" id="veh-modal-title">Add New Vehicle Listing</h2>
+        <button class="modal__close" onclick="closeModal('veh-modal')">&times;</button>
+      </div>
+      <div class="modal__body">
+        <form id="veh-form" onsubmit="handleVehSubmit(event)">
+          <input type="hidden" id="vf-id" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Stock ID *</label>
+              <input type="text" class="form-control" id="vf-stockId" required placeholder="e.g. JPDC09033" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category *</label>
+              <select class="form-control select-input" id="vf-category" required>
+                <option value="cars">Passenger Cars</option>
+                <option value="trucks">Commercial Trucks & Buses</option>
+                <option value="machinery">Heavy Machinery / Excavators</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Make (Brand) *</label>
+              <input type="text" class="form-control" id="vf-make" required placeholder="e.g. Toyota, Caterpillar, Hino" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Model *</label>
+              <input type="text" class="form-control" id="vf-model" required placeholder="e.g. Rav4, CAT 320, Canter" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Year of Manufacture *</label>
+              <input type="number" class="form-control" id="vf-year" required min="1990" max="2030" value="2024" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mileage / Operating Hours</label>
+              <input type="text" class="form-control" id="vf-mileage" placeholder="e.g. 18,200 km or 2,900 Hours" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Engine / Displacement</label>
+              <input type="text" class="form-control" id="vf-engine" placeholder="e.g. 2500 CC Hybrid or Cat C4.4" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Transmission</label>
+              <input type="text" class="form-control" id="vf-transmission" placeholder="e.g. Automatic, Manual 10-Speed" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fuel Type</label>
+              <select class="form-control select-input" id="vf-fuel">
+                <option value="Petrol">Petrol</option>
+                <option value="Hybrid (Petrol)">Hybrid (Petrol)</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Electric Vehicles">Electric Vehicles</option>
+                <option value="Hydrostatic">Hydrostatic (Machinery)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Drivetrain</label>
+              <input type="text" class="form-control" id="vf-drive" placeholder="e.g. 2WD, 4WD, AWD, Tracked" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Steering</label>
+              <select class="form-control select-input" id="vf-steering">
+                <option value="Right Hand">Right Hand (RHD)</option>
+                <option value="Left Hand">Left Hand (LHD)</option>
+                <option value="Joystick Pilot Control">Joystick Pilot Control (Machinery)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Color</label>
+              <input type="text" class="form-control" id="vf-color" placeholder="e.g. Pearl White, Cat Yellow, Black" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Doors / Seats</label>
+              <input type="text" class="form-control" id="vf-doorsSeats" placeholder="e.g. 5D / 5S or Enclosed Cab" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Sourcing Origin</label>
+              <select class="form-control select-input" id="vf-origin">
+                <option value="Japan">Japan</option>
+                <option value="United Arab Emirates">United Arab Emirates (Dubai)</option>
+                <option value="Germany">Germany</option>
+                <option value="China">China</option>
+                <option value="South Korea">South Korea</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Stock Status</label>
+              <select class="form-control select-input" id="vf-status">
+                <option value="Available">Available</option>
+                <option value="New Arrival">New Arrival</option>
+                <option value="Reserved">Reserved</option>
+                <option value="Sold">Sold</option>
+              </select>
+            </div>
+
+            <!-- Image Upload / Selection -->
+            <div class="form-group full">
+              <label class="form-label">Vehicle Image / Photo</label>
+              <div style="display:flex; gap:12px; margin-bottom:8px;">
+                <input type="text" class="form-control" id="vf-image" placeholder="Image file (e.g. v-rav4.jpg) or image URL" oninput="updateModalImgPreview()" />
+                <button type="button" class="btn btn--secondary" onclick="document.getElementById('vf-file').click()">
+                  Upload Local Photo 📁
+                </button>
+                <input type="file" id="vf-file" accept="image/*" style="display:none;" onchange="handleModalImageUpload(event)" />
+              </div>
+              <img id="vf-img-preview" class="img-preview" src="hero.jpg" alt="Preview" />
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label">Detailed Description & Specifications</label>
+              <textarea class="form-control" id="vf-description" placeholder="Enter condition, verified inspection notes, options, features..."></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal__foot">
+        <button type="button" class="btn btn--secondary" onclick="closeModal('veh-modal')">Cancel</button>
+        <button type="button" class="btn btn--primary" onclick="document.getElementById('veh-form').requestSubmit()">Save Vehicle Listing</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INQUIRY MODAL -->
+  <div class="modal-backdrop" id="inq-modal">
+    <div class="modal">
+      <div class="modal__head">
+        <h2 class="modal__title">Inquiry Details & Proforma Lead</h2>
+        <button class="modal__close" onclick="closeModal('inq-modal')">&times;</button>
+      </div>
+      <div class="modal__body">
+        <div id="inq-modal-content"></div>
+      </div>
+      <div class="modal__foot">
+        <button type="button" class="btn btn--secondary" onclick="closeModal('inq-modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMPLOYEE MODAL -->
+  <div class="modal-backdrop" id="emp-modal">
+    <div class="modal">
+      <div class="modal__head">
+        <h2 class="modal__title" id="emp-modal-title">Add Staff Profile</h2>
+        <button class="modal__close" onclick="closeModal('emp-modal')">&times;</button>
+      </div>
+      <div class="modal__body">
+        <form id="emp-form" onsubmit="handleEmployeeSubmit(event)">
+          <input type="hidden" id="ef-id" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" class="form-control" id="ef-name" required placeholder="e.g. Kenji Takahashi" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" class="form-control" id="ef-email" required placeholder="staff@abbasiauto.jp" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone / WhatsApp</label>
+              <input type="text" class="form-control" id="ef-phone" placeholder="+81 90-XXXX-XXXX" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Role Title *</label>
+              <select class="form-control select-input" id="ef-role" required onchange="applyRolePreset(this.value)">
+                <option value="Super Admin">Super Admin (Full Access)</option>
+                <option value="Managing Director">Managing Director</option>
+                <option value="Yard Manager">Yard Manager (Stock & Inspection)</option>
+                <option value="Export Sales Desk">Export Sales Desk (Leads & Invoicing)</option>
+                <option value="Logistics Dispatcher">Logistics Dispatcher (Port & Shipping)</option>
+                <option value="Yard Inspector">Yard Inspector (Read & Status Update)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Department *</label>
+              <select class="form-control select-input" id="ef-department" required>
+                <option value="Executive Management">Executive Management</option>
+                <option value="Gunma Yard & Inspection">Gunma Yard & Inspection</option>
+                <option value="International Sales">International Sales</option>
+                <option value="Yokohama / Kobe Port Logistics">Yokohama / Kobe Port Logistics</option>
+                <option value="Finance & Export Billing">Finance & Export Billing</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Employment Status</label>
+              <select class="form-control select-input" id="ef-status">
+                <option value="Active">Active On Duty</option>
+                <option value="On Leave">On Leave</option>
+                <option value="Inactive">Inactive / Suspended</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Avatar Seed / Image URL</label>
+              <input type="text" class="form-control" id="ef-avatar" placeholder="https://api.dicebear.com/7.x/bottts/svg?seed=..." />
+            </div>
+
+            <!-- Permissions Checkboxes -->
+            <div class="form-group full">
+              <label class="form-label">Granular Access Permissions</label>
+              <div class="perm-grid">
+                <label class="perm-check-item">
+                  <input type="checkbox" id="perm-manage-inv" checked />
+                  <span>Manage Inventory (Add & Edit)</span>
+                </label>
+                <label class="perm-check-item">
+                  <input type="checkbox" id="perm-delete-inv" />
+                  <span>Delete Inventory Listings</span>
+                </label>
+                <label class="perm-check-item">
+                  <input type="checkbox" id="perm-invoices" checked />
+                  <span>Commercial & Proforma Invoices</span>
+                </label>
+                <label class="perm-check-item">
+                  <input type="checkbox" id="perm-leads" checked />
+                  <span>Manage Leads & Inquiries</span>
+                </label>
+                <label class="perm-check-item">
+                  <input type="checkbox" id="perm-staff" />
+                  <span>Manage Staff & Roles</span>
+                </label>
+                <label class="perm-check-item">
+                  <input type="checkbox" id="perm-audit" checked />
+                  <span>View Supervision & Audit Logs</span>
+                </label>
+                <label class="perm-check-item">
+                  <input type="checkbox" id="perm-settings" />
+                  <span>Edit Bank & Company Settings</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal__foot">
+        <button type="button" class="btn btn--secondary" onclick="closeModal('emp-modal')">Cancel</button>
+        <button type="button" class="btn btn--primary" onclick="document.getElementById('emp-form').requestSubmit()">Save Staff Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT LOG DETAIL MODAL -->
+  <div class="modal-backdrop" id="audit-modal">
+    <div class="modal">
+      <div class="modal__head">
+        <h2 class="modal__title">Supervised Audit Event Detail</h2>
+        <button class="modal__close" onclick="closeModal('audit-modal')">&times;</button>
+      </div>
+      <div class="modal__body">
+        <div id="audit-modal-content" style="line-height:1.7;"></div>
+      </div>
+      <div class="modal__foot">
+        <button type="button" class="btn btn--secondary" onclick="closeModal('audit-modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <span id="toast-msg">Operation completed successfully</span>
+  </div>
+
+    <script>
+    let inventory = [];
+    let company = {};
+    let inquiries = [];
+    let employees = [];
+    let auditLogs = [];
+    let currentEmployee = null;
+    let isServerConnected = false;
+
+    // Toast utility
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    // Modal helpers
+    function openModal(id) { document.getElementById(id).classList.add('open'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+    // Tab switcher
+    function switchTab(tabId) {
+      document.querySelectorAll('.nav-item').forEach(b => b.classList.toggle('active', b.getAttribute('data-tab') === tabId));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === tabId));
+    }
+    document.querySelectorAll('.nav-item').forEach(b => {
+      b.addEventListener('click', () => switchTab(b.getAttribute('data-tab')));
+    });
+
+    // Check Server Connection
+    async function checkServer() {
+      try {
+        const res = await fetch('/api/status', { cache: 'no-store' });
+        if (res.ok) {
+          isServerConnected = true;
+          document.getElementById('server-status-pill').className = 'server-status';
+          document.getElementById('server-status-text').textContent = 'Local Server (Disk Sync Active)';
+        } else {
+          throw new Error('Not 200');
+        }
+      } catch (e) {
+        isServerConnected = false;
+        document.getElementById('server-status-pill').className = 'server-status offline';
+        document.getElementById('server-status-text').textContent = 'LocalStorage Mode (Browser)';
+      }
+    }
+
+    // Load Data
+    async function loadData() {
+      await checkServer();
+
+      // Inventory
+      try {
+        if (isServerConnected) {
+          const res = await fetch('/api/inventory');
+          inventory = await res.json();
+          localStorage.setItem('abbasi_inventory_v2', JSON.stringify(inventory));
+        } else {
+          const stored = localStorage.getItem('abbasi_inventory_v2');
+          inventory = stored ? JSON.parse(stored) : [];
+        }
+      } catch (e) {
+        console.error('Failed loading inventory:', e);
+      }
+
+      // Company
+      try {
+        if (isServerConnected) {
+          const res = await fetch('/api/company');
+          company = await res.json();
+          localStorage.setItem('abbasi_company_v2', JSON.stringify(company));
+        } else {
+          const stored = localStorage.getItem('abbasi_company_v2');
+          company = stored ? JSON.parse(stored) : {};
+        }
+      } catch (e) {
+        console.error('Failed loading company:', e);
+      }
+
+      // Inquiries
+      try {
+        if (isServerConnected) {
+          const res = await fetch('/api/inquiries');
+          inquiries = await res.json();
+          localStorage.setItem('abbasi_inquiries', JSON.stringify(inquiries));
+        } else {
+          const stored = localStorage.getItem('abbasi_inquiries');
+          inquiries = stored ? JSON.parse(stored) : [];
+        }
+      } catch (e) {
+        console.error('Failed loading inquiries:', e);
+      }
+
+      // Employees
+      try {
+        if (isServerConnected) {
+          const res = await fetch('/api/employees');
+          employees = await res.json();
+          localStorage.setItem('abbasi_employees_v1', JSON.stringify(employees));
+        } else {
+          const stored = localStorage.getItem('abbasi_employees_v1');
+          employees = stored ? JSON.parse(stored) : [];
+        }
+      } catch (e) {
+        console.error('Failed loading employees:', e);
+      }
+
+      // Audit Logs
+      try {
+        if (isServerConnected) {
+          const res = await fetch('/api/audit-logs');
+          auditLogs = await res.json();
+          localStorage.setItem('abbasi_audit_logs_v1', JSON.stringify(auditLogs));
+        } else {
+          const stored = localStorage.getItem('abbasi_audit_logs_v1');
+          auditLogs = stored ? JSON.parse(stored) : [];
+        }
+      } catch (e) {
+        console.error('Failed loading audit logs:', e);
+      }
+
+      // Set active employee session
+      if (employees && employees.length > 0) {
+        const savedActiveId = localStorage.getItem('abbasi_active_emp_id');
+        currentEmployee = employees.find(e => e.id === savedActiveId) || employees[0];
+      } else {
+        currentEmployee = {
+          id: 'emp-001',
+          name: 'Ali Anwar',
+          role: 'Super Admin',
+          department: 'Executive Management',
+          avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=AliAnwar'
+        };
+      }
+      populateActiveUserSelect();
+
+      renderDashboard();
+      renderInventory();
+      renderInquiries();
+      populateCompanyForm();
+      renderEmployees();
+      renderAuditLogs();
+    }
+
+    // Render Dashboard
+    function renderDashboard() {
+      const total = inventory.length;
+      const cars = inventory.filter(i => i.category === 'cars').length;
+      const trucks = inventory.filter(i => i.category === 'trucks').length;
+      const machinery = inventory.filter(i => i.category === 'machinery').length;
+
+      document.getElementById('kpi-total').textContent = total;
+      document.getElementById('kpi-cars').textContent = cars;
+      document.getElementById('kpi-trucks').textContent = trucks;
+      document.getElementById('kpi-machinery').textContent = machinery;
+      document.getElementById('kpi-inquiries').textContent = inquiries.length;
+
+      const activeStaff = employees.filter(e => e.status === 'Active').length;
+      const kpiStaff = document.getElementById('kpi-staff');
+      if (kpiStaff) kpiStaff.textContent = `${activeStaff} Active`;
+
+      const kpiAudit = document.getElementById('kpi-audit-count');
+      if (kpiAudit) kpiAudit.textContent = `${auditLogs.length} Events`;
+
+      document.getElementById('sidebar-inv-count').textContent = total;
+      document.getElementById('sidebar-inq-count').textContent = inquiries.length;
+
+      const sideEmp = document.getElementById('sidebar-emp-count');
+      if (sideEmp) sideEmp.textContent = employees.length;
+
+      const sideAudit = document.getElementById('sidebar-audit-count');
+      if (sideAudit) sideAudit.textContent = auditLogs.length;
+
+      // Recent inquiries table
+      const tbody = document.getElementById('dash-inq-tbody');
+      tbody.innerHTML = inquiries.slice(0, 5).map(inq => `
+        <tr>
+          <td>${new Date(inq.date || Date.now()).toLocaleDateString()}</td>
+          <td><strong>${inq.customerName || inq.data?.name || 'Customer'}</strong><br><small style="color:var(--text-muted);">${inq.email || inq.data?.email || inq.phone || inq.data?.phone || ''}</small></td>
+          <td>${inq.vehicle || 'General Inquiry'}</td>
+          <td>${inq.country || inq.data?.country || ''} (${inq.port || inq.data?.port || 'Port'})</td>
+          <td><span class="pill pill--${(inq.status || 'New').toLowerCase()}">${inq.status || 'New'}</span></td>
+          <td>
+            <button class="btn btn--secondary btn--sm" onclick="viewInquiry('${inq.id}')">View Details</button>
+          </td>
+        </tr>
+      `).join('') || '<tr><td colspan="6" style="text-align:center; padding:20px; color:var(--text-muted);">No customer inquiries received yet.</td></tr>';
+    }
+
+    // ==========================================
+    // INVENTORY MANAGEMENT & LIVE WEBSITE SYNC
+    // ==========================================
+    function renderInventory() {
+      const q = (document.getElementById('inv-search')?.value || '').toLowerCase();
+      const cat = document.getElementById('inv-filter-cat')?.value || 'all';
+      const status = document.getElementById('inv-filter-status')?.value || 'all';
+      const origin = document.getElementById('inv-filter-origin')?.value || 'all';
+
+      const filtered = inventory.filter(item => {
+        const text = `${item.stockId} ${item.make} ${item.model} ${item.origin} ${item.year}`.toLowerCase();
+        if (q && !text.includes(q)) return false;
+        if (cat !== 'all' && item.category !== cat) return false;
+        if (status !== 'all' && item.status !== status) return false;
+        if (origin !== 'all' && item.origin !== origin) return false;
+        return true;
+      });
+
+      const tbody = document.getElementById('inv-tbody');
+      tbody.innerHTML = filtered.map(item => `
+        <tr>
+          <td>
+            <img src="${item.image || 'hero.jpg'}" class="veh-thumb" alt="${item.make} ${item.model}" onerror="this.src='hero.jpg'" />
+          </td>
+          <td><strong>${item.stockId}</strong></td>
+          <td>
+            <div class="veh-title">${item.year} ${item.make} ${item.model}</div>
+            <div class="veh-sub">${item.color || ''} · ${item.doorsSeats || ''}</div>
+          </td>
+          <td>${item.year}</td>
+          <td>${item.mileage || '—'}</td>
+          <td>${item.transmission || 'Auto'} · ${item.engine || ''}</td>
+          <td>${item.origin}</td>
+          <td>
+            <select class="select-input" style="height:28px; font-size:11.5px; padding:0 6px;" onchange="updateQuickStatus('${item.id}', this.value)" title="Quick change vehicle status">
+              <option value="Available" ${item.status === 'Available' ? 'selected' : ''}>🟢 Available</option>
+              <option value="New Arrival" ${item.status === 'New Arrival' ? 'selected' : ''}>🔵 New Arrival</option>
+              <option value="Reserved" ${item.status === 'Reserved' ? 'selected' : ''}>🟡 Reserved</option>
+              <option value="Sold" ${item.status === 'Sold' ? 'selected' : ''}>🔴 Sold</option>
+            </select>
+          </td>
+          <td>
+            <div class="action-btns">
+              <button class="btn btn--secondary btn--sm" onclick="openEditModal('${item.id}')">✏️ Edit</button>
+              <button class="btn btn--danger btn--sm" onclick="deleteVehicle('${item.id}')">🗑️</button>
+            </div>
+          </td>
+        </tr>
+      `).join('') || '<tr><td colspan="9" style="text-align:center; padding:24px; color:var(--text-muted);">No matching vehicles found.</td></tr>';
+    }
+
+    async function updateQuickStatus(id, newStatus) {
+      const item = inventory.find(i => i.id === id);
+      if (!item) return;
+      const oldStatus = item.status;
+      item.status = newStatus;
+
+      await saveInventory();
+
+      logAuditEvent(
+        "Stock Status Changed",
+        "Inventory",
+        `${item.stockId} (${item.make} ${item.model})`,
+        `Changed stock status from "${oldStatus}" to "${newStatus}". Website catalog automatically synchronized.`,
+        "Success"
+      );
+
+      const syncTs = document.getElementById('sync-timestamp');
+      if (syncTs) syncTs.textContent = `🟢 Updated just now (${new Date().toLocaleTimeString()})`;
+
+      renderDashboard();
+      renderInventory();
+      showToast(`Stock ${item.stockId} status updated to "${newStatus}"! Website synced.`);
+    }
+
+    async function forceSyncWebsite() {
+      await saveInventory();
+
+      logAuditEvent(
+        "Manual Website Sync",
+        "Inventory",
+        `Full Catalog (${inventory.length} vehicles)`,
+        `Supervised manual catalog sync forced to public index.html by ${currentEmployee?.name || 'Administrator'}`,
+        "Success"
+      );
+
+      const syncTs = document.getElementById('sync-timestamp');
+      if (syncTs) syncTs.textContent = `🟢 Website Synced (${new Date().toLocaleTimeString()})`;
+
+      showToast(`⚡ Website catalog force-synced! ${inventory.length} units updated live.`);
+    }
+
+    function openAddModal() {
+      document.getElementById('veh-modal-title').textContent = 'Add New Vehicle Listing';
+      document.getElementById('vf-id').value = 'item-' + Date.now();
+      document.getElementById('vf-stockId').value = 'JPDC' + Math.floor(10000 + Math.random() * 90000);
+      document.getElementById('vf-category').value = 'cars';
+      document.getElementById('vf-make').value = '';
+      document.getElementById('vf-model').value = '';
+      document.getElementById('vf-year').value = new Date().getFullYear();
+      document.getElementById('vf-mileage').value = '15,000 km';
+      document.getElementById('vf-engine').value = '2000 CC';
+      document.getElementById('vf-transmission').value = 'Automatic';
+      document.getElementById('vf-fuel').value = 'Petrol';
+      document.getElementById('vf-drive').value = '2WD';
+      document.getElementById('vf-steering').value = 'Right Hand';
+      document.getElementById('vf-color').value = 'White';
+      document.getElementById('vf-doorsSeats').value = '5D / 5S';
+      document.getElementById('vf-origin').value = 'Japan';
+      document.getElementById('vf-status').value = 'Available';
+      document.getElementById('vf-image').value = 'hero.jpg';
+      document.getElementById('vf-description').value = '';
+      updateModalImgPreview();
+      openModal('veh-modal');
+    }
+
+    function openEditModal(id) {
+      const item = inventory.find(i => i.id === id);
+      if (!item) return;
+
+      document.getElementById('veh-modal-title').textContent = `Edit Listing: ${item.stockId} · ${item.make} ${item.model}`;
+      document.getElementById('vf-id').value = item.id;
+      document.getElementById('vf-stockId').value = item.stockId;
+      document.getElementById('vf-category').value = item.category;
+      document.getElementById('vf-make').value = item.make;
+      document.getElementById('vf-model').value = item.model;
+      document.getElementById('vf-year').value = item.year;
+      document.getElementById('vf-mileage').value = item.mileage || '';
+      document.getElementById('vf-engine').value = item.engine || '';
+      document.getElementById('vf-transmission').value = item.transmission || '';
+      document.getElementById('vf-fuel').value = item.fuel || 'Petrol';
+      document.getElementById('vf-drive').value = item.drive || '2WD';
+      document.getElementById('vf-steering').value = item.steering || 'Right Hand';
+      document.getElementById('vf-color').value = item.color || '';
+      document.getElementById('vf-doorsSeats').value = item.doorsSeats || '';
+      document.getElementById('vf-origin').value = item.origin || 'Japan';
+      document.getElementById('vf-status').value = item.status || 'Available';
+      document.getElementById('vf-image').value = item.image || 'hero.jpg';
+      document.getElementById('vf-description').value = item.description || '';
+      updateModalImgPreview();
+      openModal('veh-modal');
+    }
+
+    function updateModalImgPreview() {
+      const src = document.getElementById('vf-image').value || 'hero.jpg';
+      document.getElementById('vf-img-preview').src = src;
+    }
+
+    function handleModalImageUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = async function(evt) {
+        const base64Data = evt.target.result;
+        const cleanName = 'v-' + Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9._-]/g, '');
+
+        if (isServerConnected) {
+          try {
+            const res = await fetch('/api/upload', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ filename: cleanName, data: base64Data })
+            });
+            const resp = await res.json();
+            if (resp.success) {
+              document.getElementById('vf-image').value = resp.filename;
+              updateModalImgPreview();
+              showToast('Image uploaded and saved to project folder!');
+              return;
+            }
+          } catch (err) {
+            console.warn('Server upload failed, using local base64 fallback:', err);
+          }
+        }
+        document.getElementById('vf-image').value = base64Data;
+        updateModalImgPreview();
+        showToast('Image attached!');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    async function handleVehSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById('vf-id').value;
+      const isEdit = inventory.some(i => i.id === id);
+      const newItem = {
+        id: id,
+        stockId: document.getElementById('vf-stockId').value.trim(),
+        category: document.getElementById('vf-category').value,
+        make: document.getElementById('vf-make').value.trim(),
+        model: document.getElementById('vf-model').value.trim(),
+        year: parseInt(document.getElementById('vf-year').value, 10),
+        mileage: document.getElementById('vf-mileage').value.trim(),
+        engine: document.getElementById('vf-engine').value.trim(),
+        transmission: document.getElementById('vf-transmission').value.trim(),
+        fuel: document.getElementById('vf-fuel').value,
+        drive: document.getElementById('vf-drive').value.trim(),
+        steering: document.getElementById('vf-steering').value,
+        color: document.getElementById('vf-color').value.trim(),
+        doorsSeats: document.getElementById('vf-doorsSeats').value.trim(),
+        origin: document.getElementById('vf-origin').value,
+        status: document.getElementById('vf-status').value,
+        image: document.getElementById('vf-image').value.trim() || 'hero.jpg',
+        description: document.getElementById('vf-description').value.trim()
+      };
+
+      const idx = inventory.findIndex(i => i.id === id);
+      if (idx >= 0) {
+        inventory[idx] = newItem;
+      } else {
+        inventory.unshift(newItem);
+      }
+
+      await saveInventory();
+
+      logAuditEvent(
+        isEdit ? "Listing Updated" : "New Vehicle Listed",
+        "Inventory",
+        `${newItem.stockId} (${newItem.make} ${newItem.model})`,
+        `${newItem.year} ${newItem.make} ${newItem.model} (${newItem.category}) - Status: ${newItem.status}`,
+        "Success"
+      );
+
+      closeModal('veh-modal');
+      renderDashboard();
+      renderInventory();
+      showToast(`Listing ${newItem.stockId} saved successfully! Website synced.`);
+    }
+
+    async function deleteVehicle(id) {
+      const item = inventory.find(i => i.id === id);
+      if (!item) return;
+      if (!confirm(`Are you sure you want to delete listing ${item.stockId} (${item.make} ${item.model})?`)) return;
+
+      inventory = inventory.filter(i => i.id !== id);
+      await saveInventory();
+
+      logAuditEvent(
+        "Vehicle Listing Deleted",
+        "Inventory",
+        `${item.stockId} (${item.make} ${item.model})`,
+        `Removed listing from inventory and synced with website catalog.`,
+        "Warning"
+      );
+
+      renderDashboard();
+      renderInventory();
+      showToast(`Listing ${item.stockId} removed.`);
+    }
+
+    async function saveInventory() {
+      localStorage.setItem('abbasi_inventory_v2', JSON.stringify(inventory));
+      const VK = ["id","stockId","make","model","year","mileage","engine","transmission","fuel","drive","steering","color","doorsSeats","origin","category","status","description"];
+      const VR = inventory.map(item => VK.map(k => item[k] || ''));
+      localStorage.setItem('abbasi_inventory', JSON.stringify(VR));
+
+      if (isServerConnected) {
+        try {
+          await fetch('/api/inventory', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(inventory)
+          });
+        } catch (e) {
+          console.error('Error saving to server:', e);
+        }
+      }
+    }
+
+    // ==========================================
+    // EMPLOYEE MANAGEMENT (STAFF & ROLES)
+    // ==========================================
+    function populateActiveUserSelect() {
+      const sel = document.getElementById('active-user-select');
+      if (sel) {
+        sel.innerHTML = employees.map(e => `
+          <option value="${e.id}" ${currentEmployee && currentEmployee.id === e.id ? 'selected' : ''}>
+            ${e.name} (${e.role})
+          </option>
+        `).join('') || '<option value="emp-001">Ali Anwar (Super Admin)</option>';
+      }
+
+      const avatar = document.getElementById('topbar-user-avatar');
+      if (avatar && currentEmployee) {
+        avatar.src = currentEmployee.avatar || 'https://api.dicebear.com/7.x/bottts/svg?seed=' + encodeURIComponent(currentEmployee.name);
+      }
+
+      const filterEmp = document.getElementById('audit-filter-emp');
+      if (filterEmp) {
+        const curVal = filterEmp.value || 'all';
+        filterEmp.innerHTML = '<option value="all">All Employees</option>' + employees.map(e => `
+          <option value="${e.name}" ${curVal === e.name ? 'selected' : ''}>${e.name} (${e.role})</option>
+        `).join('');
+      }
+    }
+
+    function switchActiveUser(empId) {
+      const emp = employees.find(e => e.id === empId);
+      if (!emp) return;
+      currentEmployee = emp;
+      localStorage.setItem('abbasi_active_emp_id', empId);
+
+      const avatar = document.getElementById('topbar-user-avatar');
+      if (avatar) avatar.src = emp.avatar || 'https://api.dicebear.com/7.x/bottts/svg?seed=' + encodeURIComponent(emp.name);
+
+      showToast(`Active staff session: ${emp.name} (${emp.role})`);
+      logAuditEvent(
+        "Staff Login Session Switched",
+        "Staff",
+        emp.name,
+        `Active session switched to ${emp.name} (${emp.role}) - ${emp.department}`,
+        "Success"
+      );
+    }
+
+    const ROLE_PRESETS = {
+      "Super Admin": { inv: true, del: true, invc: true, leads: true, staff: true, audit: true, set: true },
+      "Managing Director": { inv: true, del: true, invc: true, leads: true, staff: true, audit: true, set: true },
+      "Yard Manager": { inv: true, del: false, invc: false, leads: false, staff: false, audit: true, set: false },
+      "Export Sales Desk": { inv: false, del: false, invc: true, leads: true, staff: false, audit: true, set: false },
+      "Logistics Dispatcher": { inv: false, del: false, invc: true, leads: true, staff: false, audit: true, set: false },
+      "Yard Inspector": { inv: false, del: false, invc: false, leads: false, staff: false, audit: false, set: false }
+    };
+
+    function applyRolePreset(role) {
+      const p = ROLE_PRESETS[role] || ROLE_PRESETS["Yard Manager"];
+      document.getElementById('perm-manage-inv').checked = p.inv;
+      document.getElementById('perm-delete-inv').checked = p.del;
+      document.getElementById('perm-invoices').checked = p.invc;
+      document.getElementById('perm-leads').checked = p.leads;
+      document.getElementById('perm-staff').checked = p.staff;
+      document.getElementById('perm-audit').checked = p.audit;
+      document.getElementById('perm-settings').checked = p.set;
+    }
+
+    function openAddEmployeeModal() {
+      document.getElementById('emp-modal-title').textContent = 'Add New Staff Profile';
+      document.getElementById('ef-id').value = '';
+      document.getElementById('ef-name').value = '';
+      document.getElementById('ef-email').value = '';
+      document.getElementById('ef-phone').value = '';
+      document.getElementById('ef-role').value = 'Yard Manager';
+      document.getElementById('ef-department').value = 'Gunma Yard & Inspection';
+      document.getElementById('ef-status').value = 'Active';
+      document.getElementById('ef-avatar').value = 'https://api.dicebear.com/7.x/bottts/svg?seed=Staff' + Math.floor(100 + Math.random() * 900);
+      applyRolePreset('Yard Manager');
+      openModal('emp-modal');
+    }
+
+    function openEditEmployeeModal(id) {
+      const emp = employees.find(e => e.id === id);
+      if (!emp) return;
+
+      document.getElementById('emp-modal-title').textContent = `Edit Staff Profile: ${emp.name}`;
+      document.getElementById('ef-id').value = emp.id;
+      document.getElementById('ef-name').value = emp.name;
+      document.getElementById('ef-email').value = emp.email;
+      document.getElementById('ef-phone').value = emp.phone || '';
+      document.getElementById('ef-role').value = emp.role;
+      document.getElementById('ef-department').value = emp.department;
+      document.getElementById('ef-status').value = emp.status || 'Active';
+      document.getElementById('ef-avatar').value = emp.avatar || '';
+
+      const perms = emp.permissions || {};
+      document.getElementById('perm-manage-inv').checked = perms.manageInventory !== undefined ? perms.manageInventory : true;
+      document.getElementById('perm-delete-inv').checked = !!perms.deleteInventory;
+      document.getElementById('perm-invoices').checked = perms.invoices !== undefined ? perms.invoices : true;
+      document.getElementById('perm-leads').checked = perms.leads !== undefined ? perms.leads : true;
+      document.getElementById('perm-staff').checked = !!perms.staffManagement;
+      document.getElementById('perm-audit').checked = perms.auditLogs !== undefined ? perms.auditLogs : true;
+      document.getElementById('perm-settings').checked = !!perms.companySettings;
+
+      openModal('emp-modal');
+    }
+
+    async function handleEmployeeSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById('ef-id').value;
+      const isEdit = Boolean(id);
+      const empId = id || ('emp-' + String(Date.now()).slice(-4));
+
+      const empObj = {
+        id: empId,
+        name: document.getElementById('ef-name').value.trim(),
+        email: document.getElementById('ef-email').value.trim(),
+        phone: document.getElementById('ef-phone').value.trim(),
+        role: document.getElementById('ef-role').value,
+        department: document.getElementById('ef-department').value,
+        status: document.getElementById('ef-status').value,
+        avatar: document.getElementById('ef-avatar').value.trim() || ('https://api.dicebear.com/7.x/bottts/svg?seed=' + encodeURIComponent(document.getElementById('ef-name').value)),
+        permissions: {
+          manageInventory: document.getElementById('perm-manage-inv').checked,
+          deleteInventory: document.getElementById('perm-delete-inv').checked,
+          invoices: document.getElementById('perm-invoices').checked,
+          leads: document.getElementById('perm-leads').checked,
+          staffManagement: document.getElementById('perm-staff').checked,
+          auditLogs: document.getElementById('perm-audit').checked,
+          companySettings: document.getElementById('perm-settings').checked
+        },
+        lastActive: new Date().toISOString()
+      };
+
+      const idx = employees.findIndex(x => x.id === empId);
+      if (idx >= 0) {
+        employees[idx] = empObj;
+      } else {
+        employees.push(empObj);
+      }
+
+      localStorage.setItem('abbasi_employees_v1', JSON.stringify(employees));
+
+      if (isServerConnected) {
+        try {
+          await fetch('/api/employees', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(empObj)
+          });
+        } catch (err) {
+          console.error('Failed saving employee to server:', err);
+        }
+      }
+
+      logAuditEvent(
+        isEdit ? "Staff Profile Updated" : "New Staff Added",
+        "Staff",
+        empObj.name,
+        `Profile saved for ${empObj.name} (${empObj.role}) - Dept: ${empObj.department}`,
+        "Success"
+      );
+
+      closeModal('emp-modal');
+      populateActiveUserSelect();
+      renderEmployees();
+      renderDashboard();
+      showToast(`Staff profile for ${empObj.name} saved successfully!`);
+    }
+
+    async function deleteEmployee(id) {
+      const emp = employees.find(e => e.id === id);
+      if (!emp) return;
+      if (!confirm(`Are you sure you want to remove staff member "${emp.name}" (${emp.role})?`)) return;
+
+      employees = employees.filter(e => e.id !== id);
+      localStorage.setItem('abbasi_employees_v1', JSON.stringify(employees));
+
+      if (isServerConnected) {
+        try {
+          await fetch(`/api/employees?id=${id}`, { method: 'DELETE' });
+        } catch (err) {
+          console.error('Failed deleting employee on server:', err);
+        }
+      }
+
+      logAuditEvent("Staff Profile Removed", "Staff", emp.name, `Removed staff member ${emp.name} (${emp.role})`, "Warning");
+
+      if (currentEmployee && currentEmployee.id === id) {
+        currentEmployee = employees[0] || null;
+      }
+      populateActiveUserSelect();
+      renderEmployees();
+      renderDashboard();
+      showToast(`Staff profile for ${emp.name} removed.`);
+    }
+
+    function renderEmployees() {
+      const q = (document.getElementById('emp-search')?.value || '').toLowerCase();
+      const dept = document.getElementById('emp-filter-dept')?.value || 'all';
+      const status = document.getElementById('emp-filter-status')?.value || 'all';
+
+      const filtered = employees.filter(emp => {
+        const text = `${emp.name} ${emp.email} ${emp.phone || ''} ${emp.role} ${emp.department}`.toLowerCase();
+        if (q && !text.includes(q)) return false;
+        if (dept !== 'all' && emp.department !== dept) return false;
+        if (status !== 'all' && emp.status !== status) return false;
+        return true;
+      });
+
+      const total = employees.length;
+      const active = employees.filter(e => e.status === 'Active').length;
+      const yard = employees.filter(e => (e.department || '').includes('Yard') || (e.role || '').includes('Yard')).length;
+      const sales = employees.filter(e => (e.department || '').includes('Sales') || (e.role || '').includes('Sales')).length;
+
+      document.getElementById('emp-stat-total').textContent = total;
+      document.getElementById('emp-stat-active').textContent = active;
+      document.getElementById('emp-stat-yard').textContent = yard;
+      document.getElementById('emp-stat-sales').textContent = sales;
+      const sideEmp = document.getElementById('sidebar-emp-count');
+      if (sideEmp) sideEmp.textContent = total;
+      const kpiStaff = document.getElementById('kpi-staff');
+      if (kpiStaff) kpiStaff.textContent = `${active} Active`;
+
+      const tbody = document.getElementById('emp-tbody');
+      tbody.innerHTML = filtered.map(emp => {
+        const perms = emp.permissions || {};
+        const permBadges = [];
+        if (perms.manageInventory) permBadges.push('<span class="perm-chip" style="border-color:rgba(255,212,0,0.3); color:#FBBF24;">Stock</span>');
+        if (perms.invoices) permBadges.push('<span class="perm-chip" style="border-color:rgba(139,92,246,0.3); color:#C084FC;">Billing</span>');
+        if (perms.leads) permBadges.push('<span class="perm-chip" style="border-color:rgba(249,115,22,0.3); color:#FB923C;">Leads</span>');
+        if (perms.staffManagement) permBadges.push('<span class="perm-chip" style="border-color:rgba(16,185,129,0.3); color:#34D399;">Staff</span>');
+        if (perms.auditLogs) permBadges.push('<span class="perm-chip" style="border-color:rgba(20,184,166,0.3); color:#2DD4BF;">Audit</span>');
+        if (perms.companySettings) permBadges.push('<span class="perm-chip" style="border-color:rgba(244,63,94,0.3); color:#FB7185;">Bank</span>');
+
+        const statusClass = emp.status === 'Active' ? 'pill--available' : (emp.status === 'On Leave' ? 'pill--reserved' : 'pill--sold');
+        const rolePillClass = (emp.role === 'Super Admin' || emp.role === 'Managing Director') ? 'pill--cat-settings' : (emp.role.includes('Yard') ? 'pill--cat-yard' : (emp.role.includes('Sales') ? 'pill--cat-sales' : 'pill--cat-invoicing'));
+
+        return `
+          <tr>
+            <td>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <img src="${emp.avatar || 'https://api.dicebear.com/7.x/bottts/svg?seed=' + encodeURIComponent(emp.name)}" class="staff-avatar" alt="${emp.name}" onerror="this.src='hero.jpg'" />
+                <div>
+                  <strong style="color:#fff; font-size:13.5px;">${emp.name}</strong>
+                  <div style="font-size:11px; color:var(--text-muted); font-family:monospace;">${emp.id}</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a href="mailto:${emp.email}" style="color:var(--text-light); text-decoration:none; font-size:12.5px;">${emp.email}</a>
+              <div style="font-size:11.5px; color:var(--text-muted);">${emp.phone || '—'}</div>
+            </td>
+            <td><span class="pill ${rolePillClass}" style="font-weight:600;">${emp.role}</span></td>
+            <td style="font-size:12.5px;">${emp.department}</td>
+            <td><span class="pill ${statusClass}">${emp.status}</span></td>
+            <td>
+              <div style="display:flex; gap:4px; flex-wrap:wrap; max-width:180px;">
+                ${permBadges.join('') || '<span style="color:var(--text-muted); font-size:11px;">View Only</span>'}
+              </div>
+            </td>
+            <td style="font-size:11.5px; color:var(--text-muted);">${emp.lastActive ? new Date(emp.lastActive).toLocaleDateString() : 'Active Today'}</td>
+            <td>
+              <div class="action-btns">
+                <button class="btn btn--secondary btn--sm" onclick="openEditEmployeeModal('${emp.id}')">✏️ Edit</button>
+                <button class="btn btn--danger btn--sm" onclick="deleteEmployee('${emp.id}')" title="Delete Profile">🗑️</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('') || '<tr><td colspan="8" style="text-align:center; padding:24px; color:var(--text-muted);">No staff profiles match the selected filters.</td></tr>';
+    }
+
+    // ==========================================
+    // EMPLOYEE SUPERVISION & AUDIT LOGS
+    // ==========================================
+    function logAuditEvent(action, category, target, details, status = "Success") {
+      const staff = currentEmployee || {
+        id: "emp-001",
+        name: "Ali Anwar",
+        role: "Super Admin"
+      };
+
+      const newLog = {
+        id: "log-" + Date.now() + "-" + Math.floor(Math.random() * 1000),
+        timestamp: new Date().toISOString(),
+        employeeId: staff.id,
+        employeeName: staff.name,
+        employeeRole: staff.role,
+        category: category,
+        action: action,
+        target: target || "—",
+        details: details || "",
+        status: status,
+        device: navigator.userAgent.includes("Windows") ? "Windows PC · Desktop Browser" : "Admin Terminal",
+        ip: "127.0.0.1 (Local Yard LAN)"
+      };
+
+      auditLogs.unshift(newLog);
+      if (auditLogs.length > 250) auditLogs = auditLogs.slice(0, 250);
+
+      localStorage.setItem('abbasi_audit_logs_v1', JSON.stringify(auditLogs));
+
+      if (isServerConnected) {
+        fetch('/api/audit-logs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newLog)
+        }).catch(err => console.warn('Server audit log failed:', err));
+      }
+
+      renderAuditLogs();
+      const sideAudit = document.getElementById('sidebar-audit-count');
+      if (sideAudit) sideAudit.textContent = auditLogs.length;
+      const kpiAudit = document.getElementById('kpi-audit-count');
+      if (kpiAudit) kpiAudit.textContent = `${auditLogs.length} Events`;
+    }
+
+    async function loadAuditLogs() {
+      try {
+        if (isServerConnected) {
+          const res = await fetch('/api/audit-logs');
+          auditLogs = await res.json();
+          localStorage.setItem('abbasi_audit_logs_v1', JSON.stringify(auditLogs));
+        }
+        renderAuditLogs();
+        showToast('Supervision audit trail refreshed from server.');
+      } catch (err) {
+        console.error('Failed refreshing audit logs:', err);
+      }
+    }
+
+    function renderAuditLogs() {
+      const q = (document.getElementById('audit-search')?.value || '').toLowerCase();
+      const empFilter = document.getElementById('audit-filter-emp')?.value || 'all';
+      const catFilter = document.getElementById('audit-filter-cat')?.value || 'all';
+
+      const filtered = auditLogs.filter(log => {
+        const text = `${log.employeeName} ${log.employeeRole} ${log.action} ${log.target} ${log.details} ${log.category}`.toLowerCase();
+        if (q && !text.includes(q)) return false;
+        if (empFilter !== 'all' && log.employeeName !== empFilter) return false;
+        if (catFilter !== 'all' && log.category !== catFilter) return false;
+        return true;
+      });
+
+      const totalLogs = auditLogs.length;
+      const staffCount = new Set(auditLogs.map(l => l.employeeName)).size;
+      const invLogs = auditLogs.filter(l => l.category === 'Inventory').length;
+
+      const statToday = document.getElementById('audit-stat-today');
+      if (statToday) statToday.textContent = totalLogs;
+      const statStaff = document.getElementById('audit-stat-staff');
+      if (statStaff) statStaff.textContent = staffCount;
+      const statInv = document.getElementById('audit-stat-inv');
+      if (statInv) statInv.textContent = invLogs;
+
+      const tbody = document.getElementById('audit-tbody');
+      tbody.innerHTML = filtered.map(log => {
+        const catClass = `pill--cat-${(log.category || 'general').toLowerCase().replace(/[^a-z]/g, '')}`;
+        const dateStr = new Date(log.timestamp).toLocaleString();
+        return `
+          <tr>
+            <td style="font-size:12px; color:var(--text-light); white-space:nowrap; font-family:monospace;">
+              ${dateStr}
+            </td>
+            <td>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:24px; height:24px; border-radius:50%; background:#1E293B; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:var(--gold);">
+                  ${(log.employeeName || 'A').charAt(0)}
+                </div>
+                <div>
+                  <strong style="color:#fff; font-size:12.5px;">${log.employeeName}</strong>
+                  <div style="font-size:11px; color:var(--text-muted);">${log.employeeRole}</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="pill ${catClass}">${log.category}</span></td>
+            <td><strong style="color:#F1F5F9; font-size:12.5px;">${log.action}</strong></td>
+            <td>
+              <div style="font-size:12.5px; font-weight:600; color:var(--gold);">${log.target}</div>
+              <div style="font-size:11.5px; color:var(--text-muted); max-width:240px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${log.details || ''}</div>
+            </td>
+            <td style="font-size:11px; color:var(--text-muted);">
+              <div>${log.device || 'Windows PC'}</div>
+              <span style="font-family:monospace; color:#94A3B8;">${log.ip || '127.0.0.1'}</span>
+            </td>
+            <td>
+              <button class="btn btn--secondary btn--sm" onclick="viewAuditDetail('${log.id}')" title="Inspect Complete Audit Event">
+                🔍 Inspect
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('') || '<tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">No audit log entries found matching criteria.</td></tr>';
+    }
+
+    function viewAuditDetail(id) {
+      const log = auditLogs.find(l => l.id === id);
+      if (!log) return;
+
+      const content = document.getElementById('audit-modal-content');
+      content.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:10px; border-bottom:1px solid var(--navy-border);">
+            <span class="pill pill--cat-${(log.category || '').toLowerCase().replace(/[^a-z]/g, '')}" style="font-size:12px; padding:4px 10px;">${log.category}</span>
+            <span style="font-family:monospace; font-size:12px; color:var(--text-muted);">ID: ${log.id}</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:13px;">
+            <div><strong>Timestamp:</strong><br><span style="color:var(--text-muted); font-family:monospace;">${new Date(log.timestamp).toLocaleString()} (${log.timestamp})</span></div>
+            <div><strong>Status:</strong><br><span class="pill pill--available">${log.status || 'Verified Success'}</span></div>
+            <div><strong>Acting Staff:</strong><br><span style="color:#fff; font-weight:600;">${log.employeeName}</span> <span style="color:var(--text-muted);">(${log.employeeRole} · ${log.employeeId})</span></div>
+            <div><strong>Target Entity:</strong><br><span style="color:var(--gold); font-weight:600;">${log.target}</span></div>
+            <div><strong>Network IP:</strong><br><span style="color:var(--text-muted); font-family:monospace;">${log.ip || '127.0.0.1'}</span></div>
+            <div><strong>Device / Platform:</strong><br><span style="color:var(--text-muted);">${log.device || 'Windows PC'}</span></div>
+          </div>
+          <div style="margin-top:10px; padding:14px; background:rgba(0,0,0,0.3); border-radius:6px; border:1px solid var(--navy-border);">
+            <strong style="color:#fff; font-size:13px;">Action &amp; Supervised Payload Details:</strong>
+            <p style="margin-top:6px; color:#E2E8F0; font-size:13px; line-height:1.6;">${log.details || log.action}</p>
+          </div>
+        </div>
+      `;
+      openModal('audit-modal');
+    }
+
+    function exportAuditCSV() {
+      if (!auditLogs.length) { showToast('No audit logs to export'); return; }
+      const headers = ['Timestamp', 'Log_ID', 'Employee_ID', 'Employee_Name', 'Role', 'Category', 'Action', 'Target', 'Details', 'Status', 'Device', 'IP'];
+      const rows = auditLogs.map(l => [
+        `"${l.timestamp}"`,
+        `"${l.id}"`,
+        `"${l.employeeId || ''}"`,
+        `"${(l.employeeName || '').replace(/"/g, '""')}"`,
+        `"${(l.employeeRole || '').replace(/"/g, '""')}"`,
+        `"${(l.category || '').replace(/"/g, '""')}"`,
+        `"${(l.action || '').replace(/"/g, '""')}"`,
+        `"${(l.target || '').replace(/"/g, '""')}"`,
+        `"${(l.details || '').replace(/"/g, '""')}"`,
+        `"${l.status || 'Success'}"`,
+        `"${(l.device || '').replace(/"/g, '""')}"`,
+        `"${l.ip || ''}"`
+      ]);
+      const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      downloadBlob(new Blob([csv], { type: 'text/csv;charset=utf-8;' }), `abbasi_audit_supervision_trail_${Date.now()}.csv`);
+      showToast('Tamper-evident audit trail exported to CSV!');
+      logAuditEvent("Audit Trail Exported", "Staff", "Supervision Log CSV", "Downloaded tamper-evident CSV activity audit file", "Success");
+    }
+
+    async function clearAuditLogs() {
+      if (!confirm('Are you sure you want to clear the supervision audit logs? This action is tracked.')) return;
+      auditLogs = [];
+      localStorage.setItem('abbasi_audit_logs_v1', JSON.stringify([]));
+
+      if (isServerConnected) {
+        try {
+          await fetch('/api/audit-logs', { method: 'DELETE' });
+        } catch (e) {
+          console.error('Failed clearing audit logs on server:', e);
+        }
+      }
+
+      logAuditEvent("Audit Trail Reset", "Security", "Audit History", "Supervision history log database reset by authorized admin", "Warning");
+      renderAuditLogs();
+      showToast('Audit log history cleared.');
+    }
+
+    // ==========================================
+    // INQUIRIES & LEADS MANAGEMENT
+    // ==========================================
+    function renderInquiries() {
+      const q = (document.getElementById('inq-search')?.value || '').toLowerCase();
+      const status = document.getElementById('inq-filter-status')?.value || 'all';
+
+      const filtered = inquiries.filter(inq => {
+        const text = `${inq.customerName || ''} ${inq.email || ''} ${inq.country || ''} ${inq.vehicle || ''}`.toLowerCase();
+        if (q && !text.includes(q)) return false;
+        if (status !== 'all' && (inq.status || 'New') !== status) return false;
+        return true;
+      });
+
+      const tbody = document.getElementById('inq-tbody');
+      tbody.innerHTML = filtered.map(inq => `
+        <tr>
+          <td>${new Date(inq.date || Date.now()).toLocaleDateString()}</td>
+          <td>
+            <strong>${inq.customerName || inq.data?.name || 'Customer'}</strong><br>
+            <small style="color:var(--text-muted);">${inq.email || inq.data?.email || ''} · ${inq.phone || inq.data?.phone || ''}</small>
+          </td>
+          <td><strong>${inq.vehicle || 'General Inquiry'}</strong></td>
+          <td>${inq.country || inq.data?.country || '—'} (${inq.port || inq.data?.port || 'Port'})</td>
+          <td style="max-width:260px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${inq.message || inq.data?.notes || inq.data?.message || '—'}</td>
+          <td>
+            <select class="select-input" style="height:28px; font-size:11px;" onchange="updateInquiryStatus('${inq.id}', this.value)">
+              <option value="New" ${inq.status === 'New' ? 'selected' : ''}>New</option>
+              <option value="Contacted" ${inq.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
+              <option value="Quoted" ${inq.status === 'Quoted' ? 'selected' : ''}>Quoted</option>
+              <option value="Closed" ${inq.status === 'Closed' ? 'selected' : ''}>Closed</option>
+            </select>
+          </td>
+          <td>
+            <div class="action-btns">
+              <button class="btn btn--secondary btn--sm" onclick="viewInquiry('${inq.id}')">View</button>
+              <button class="btn btn--outline btn--sm" onclick="switchTab('tab-invoices')" title="Open Commercial Invoicing System">📄 Invoice</button>
+              <button class="btn btn--danger btn--sm" onclick="deleteInquiry('${inq.id}')">🗑️</button>
+            </div>
+          </td>
+        </tr>
+      `).join('') || '<tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">No inquiries found.</td></tr>';
+    }
+
+    function viewInquiry(id) {
+      const inq = inquiries.find(i => i.id === id);
+      if (!inq) return;
+
+      const modalContent = document.getElementById('inq-modal-content');
+      modalContent.innerHTML = `
+        <div style="line-height:1.7;">
+          <p><strong>Lead ID:</strong> ${inq.id}</p>
+          <p><strong>Date:</strong> ${new Date(inq.date || Date.now()).toLocaleString()}</p>
+          <p><strong>Customer Name:</strong> ${inq.customerName || inq.data?.name || 'Customer'}</p>
+          <p><strong>Email:</strong> <a href="mailto:${inq.email || inq.data?.email || ''}">${inq.email || inq.data?.email || ''}</a></p>
+          <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/${(inq.phone || inq.data?.phone || '').replace(/[^0-9]/g, '')}" target="_blank">${inq.phone || inq.data?.phone || '—'}</a></p>
+          <p><strong>Destination:</strong> ${inq.country || inq.data?.country || '—'} · Port: ${inq.port || inq.data?.port || '—'}</p>
+          <p><strong>Vehicle of Interest:</strong> ${inq.vehicle || 'General Inquiry'}</p>
+          <div style="margin-top:14px; padding:12px; background:rgba(0,0,0,0.25); border-radius:6px; border:1px solid var(--navy-border);">
+            <strong>Message / Request Notes:</strong><br>
+            ${inq.message || inq.data?.notes || inq.data?.message || 'No additional notes entered.'}
+          </div>
+        </div>
+      `;
+      openModal('inq-modal');
+    }
+
+    async function updateInquiryStatus(id, newStatus) {
+      const inq = inquiries.find(i => i.id === id);
+      if (inq) {
+        inq.status = newStatus;
+        localStorage.setItem('abbasi_inquiries', JSON.stringify(inquiries));
+        if (isServerConnected) {
+          await fetch('/api/inquiries', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(inq)
+          });
+        }
+        logAuditEvent("Inquiry Status Changed", "Leads", `Lead #${id} (${inq.customerName || 'Customer'})`, `Changed status to "${newStatus}"`, "Success");
+        showToast(`Status updated to ${newStatus}`);
+      }
+    }
+
+    async function deleteInquiry(id) {
+      const inq = inquiries.find(i => i.id === id);
+      if (!confirm('Delete this inquiry?')) return;
+      inquiries = inquiries.filter(i => i.id !== id);
+      localStorage.setItem('abbasi_inquiries', JSON.stringify(inquiries));
+      if (isServerConnected) {
+        await fetch(`/api/inquiries?id=${id}`, { method: 'DELETE' });
+      }
+      logAuditEvent("Inquiry Deleted", "Leads", `Lead #${id}`, `Deleted customer inquiry record`, "Warning");
+      renderDashboard();
+      renderInquiries();
+      showToast('Inquiry deleted.');
+    }
+
+    // ==========================================
+    // COMPANY & BANK PROFILE SETTINGS
+    // ==========================================
+    function populateCompanyForm() {
+      const b = company.bank || {};
+      document.getElementById('bank-beneficiary').value = b.beneficiary || 'ABBASI TRADING LLC';
+      document.getElementById('bank-name').value = b.name || 'Gunma Bank (群馬銀行)';
+      document.getElementById('bank-branch').value = b.branch || 'Oura Town Branch (No. 233)';
+      document.getElementById('bank-accountType').value = b.accountType || 'Regular Account (普通)';
+      document.getElementById('bank-accountNo').value = b.accountNo || '0632572';
+      document.getElementById('bank-swift').value = b.swift || 'GUNMAJPT';
+      document.getElementById('bank-surcharge').value = b.surchargeNote || 'Standard USD 25 surcharge';
+
+      document.getElementById('cp-wa').value = company.wa || '+81 90-1765-5641';
+      document.getElementById('cp-mail').value = company.mail || 'abbasiautomachinery@gmail.com';
+      document.getElementById('cp-pay').value = company.pay || 'T/T (Telegraphic Transfer) · 100% Advance T/T';
+      document.getElementById('cp-trade').value = company.trade || 'FOB / CIF / C&F (as agreed)';
+      document.getElementById('cp-ship').value = company.ship || 'RORO & Container';
+      document.getElementById('cp-cur').value = company.cur || 'USD ($)';
+    }
+
+    async function saveCompanySettings() {
+      company.bank = {
+        name: document.getElementById('bank-name').value.trim(),
+        branch: document.getElementById('bank-branch').value.trim(),
+        accountType: document.getElementById('bank-accountType').value.trim(),
+        accountNo: document.getElementById('bank-accountNo').value.trim(),
+        swift: document.getElementById('bank-swift').value.trim(),
+        beneficiary: document.getElementById('bank-beneficiary').value.trim(),
+        surchargeNote: document.getElementById('bank-surcharge').value.trim(),
+        verificationNote: company.bank?.verificationNote || ''
+      };
+
+      company.wa = document.getElementById('cp-wa').value.trim();
+      company.mail = document.getElementById('cp-mail').value.trim();
+      company.pay = document.getElementById('cp-pay').value.trim();
+      company.trade = document.getElementById('cp-trade').value.trim();
+      company.ship = document.getElementById('cp-ship').value.trim();
+      company.cur = document.getElementById('cp-cur').value.trim();
+
+      localStorage.setItem('abbasi_company_v2', JSON.stringify(company));
+      localStorage.setItem('abbasi_company', JSON.stringify(company));
+
+      if (isServerConnected) {
+        try {
+          await fetch('/api/company', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(company)
+          });
+        } catch (e) {
+          console.error('Error saving company profile to server:', e);
+        }
+      }
+
+      logAuditEvent("Settings Updated", "Settings", "Company & Bank Profile", `Updated Gunma Bank coordinates and export parameters`, "Success");
+      showToast('Company settings & Gunma Bank profile saved to disk!');
+    }
+
+    // ==========================================
+    // IMPORT / EXPORT UTILITIES
+    // ==========================================
+    function exportCSV() {
+      if (!inventory.length) { showToast('No inventory to export'); return; }
+      const headers = Object.keys(inventory[0]);
+      const csvRows = [
+        headers.join(','),
+        ...inventory.map(row => headers.map(h => `"${String(row[h] || '').replace(/"/g, '""')}"`).join(','))
+      ];
+      downloadBlob(new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' }), `abbasi_inventory_${Date.now()}.csv`);
+      logAuditEvent("Inventory Exported", "Inventory", "CSV Backup", `Exported ${inventory.length} vehicle listings to CSV`, "Success");
+      showToast('Inventory exported to CSV!');
+    }
+
+    function exportJSON() {
+      const dataStr = JSON.stringify(inventory, null, 2);
+      downloadBlob(new Blob([dataStr], { type: 'application/json' }), `abbasi_inventory_${Date.now()}.json`);
+      logAuditEvent("Inventory Exported", "Inventory", "JSON Backup", `Exported ${inventory.length} vehicle listings to JSON`, "Success");
+      showToast('Inventory exported to JSON!');
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function handleFileImport(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = async function(evt) {
+        try {
+          const content = evt.target.result;
+          if (file.name.endsWith('.json')) {
+            const data = JSON.parse(content);
+            if (Array.isArray(data)) {
+              inventory = data;
+              await saveInventory();
+              logAuditEvent("Inventory Imported", "Inventory", file.name, `Imported ${data.length} vehicles from JSON file`, "Success");
+              renderDashboard();
+              renderInventory();
+              showToast(`Imported ${data.length} vehicles from JSON! Website synced.`);
+            }
+          } else if (file.name.endsWith('.csv')) {
+            const lines = content.split('\n').filter(l => l.trim());
+            const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+            const imported = lines.slice(1).map(line => {
+              const values = line.split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+              const obj = {};
+              headers.forEach((h, i) => obj[h] = values[i] || '');
+              return obj;
+            });
+            inventory = imported;
+            await saveInventory();
+            logAuditEvent("Inventory Imported", "Inventory", file.name, `Imported ${imported.length} vehicles from CSV file`, "Success");
+            renderDashboard();
+            renderInventory();
+            showToast(`Imported ${imported.length} vehicles from CSV! Website synced.`);
+          }
+        } catch (err) {
+          alert('Failed to parse file: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function reloadInvoiceFrame() {
+      const frame = document.getElementById('invoice-frame');
+      if (frame) {
+        frame.src = 'invoice.html?t=' + Date.now();
+        showToast('Invoice system reloaded.');
+      }
+    }
+
+    document.getElementById('btn-sync-all').addEventListener('click', async () => {
+      await saveInventory();
+      await saveCompanySettings();
+      logAuditEvent("Full Project Sync", "Settings", "Local Disk", `Forced full project sync (inventory, company settings, index.html)`, "Success");
+      showToast('All inventory and company settings saved to project disk!');
+    });
+
+    // Start application
+    loadData();
+  </script>
+</body>
+</html>

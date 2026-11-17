@@ -1,0 +1,28 @@
+[
+  {
+    "id": "INQ-17001",
+    "date": "2026-11-14T14:32:00Z",
+    "kind": "veh",
+    "vehicle": "JPDC09032 · 2026 Toyota Rav4",
+    "customerName": "Tariq Mahmood",
+    "email": "tariq.m@example.com",
+    "phone": "+92 300 1234567",
+    "country": "Pakistan",
+    "port": "Karachi Port",
+    "message": "Please send CIF Karachi quotation and estimated shipping schedule.",
+    "status": "New"
+  },
+  {
+    "id": "INQ-17002",
+    "date": "2026-11-13T10:15:00Z",
+    "kind": "veh",
+    "vehicle": "JPDM00002 · 2021 Caterpillar CAT 320",
+    "customerName": "David Mwangi",
+    "email": "d.mwangi@africamines.co.ke",
+    "phone": "+254 712 987654",
+    "country": "Kenya",
+    "port": "Mombasa",
+    "message": "Need proforma invoice and JEVIC inspection certificate details.",
+    "status": "Quoted"
+  }
+]

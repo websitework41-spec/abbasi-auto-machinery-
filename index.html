@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Abbasi Auto Machinery · Japanese Cars, Trucks & Heavy Machinery Exporter</title>
     <meta name="description" content="ABBASI TRADING LLC, Gunma, Japan. Used cars, trucks and heavy machinery shipped worldwide from Yokohama and Kobe." />
     <link rel="stylesheet" href="fonts.css" />
@@ -11,11 +11,11 @@
     <script>document.documentElement.classList.add("x-js");</script>
     <style>
       :root{--x-navy:#283374;--x-dark:#0A0F24;--x-dark2:#121a3a;--x-gold:#FFD400;--x-light:#F5F6FA;--x-ink:#141a33;--x-mut:#5b6280;--x-line:#e3e6ef;--x-ok:#1f9d55;--x-h:'Poppins',system-ui,sans-serif;--x-b:'Inter',system-ui,sans-serif;--x-ease:cubic-bezier(.2,.8,.2,1)}
-      html{scroll-padding-top:84px;background:#0A0F24}
+      html{scroll-padding-top:84px;background:#0A0F24;overflow-x:hidden;-webkit-text-size-adjust:100%}
       .page,.x-hero,.x-search{background-color:var(--x-dark)}
       .x-stats,.x-sec--navy,.x-cta__box,.x-step,.x-tbl{background-color:var(--x-dark)!important}
       .x-search{background-color:rgba(18,24,52,.72)}
-      body{margin:0;background:var(--x-dark);color:#fff;font-family:var(--x-b);font-size:15px;line-height:1.55;overflow-x:hidden}
+      body{margin:0;background:var(--x-dark);color:#fff;font-family:var(--x-b);font-size:15px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
       .page{max-width:none;padding:0;margin:0}
       h1,h2,h3,h4{font-family:var(--x-h);font-weight:700;letter-spacing:-.01em}
       button,input,select,textarea{font:inherit;color:inherit}
@@ -39,16 +39,18 @@
       .x-top__btn:hover{background:var(--x-gold);color:var(--x-dark)}
       /* header */
       .x-hd{position:fixed;left:0;right:0;top:52px;z-index:50;transition:top .35s var(--x-ease),background .35s,box-shadow .35s,backdrop-filter .35s}
-      .x-hd .x-wrap{display:flex;align-items:center;gap:24px;height:84px;transition:height .35s}
+      .x-hd .x-wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;height:84px;transition:height .35s}
       .x-hd.is-solid{top:0;background:rgba(20,28,72,.92);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 8px 30px rgba(0,0,0,.3)}
       .x-hd.is-solid .x-wrap{height:68px}
-      .x-logo{display:flex;align-items:center;min-height:52px}
-      .x-logo img{height:62px;width:auto;display:block;transition:height .35s}
-      .x-hd.is-solid .x-logo img{height:50px}
-      .x-nav{display:flex;gap:2px;margin-left:auto}
-      .x-nav a,.x-nav button{background:none;border:0;cursor:pointer;text-decoration:none;font:500 14px var(--x-b);color:rgba(255,255,255,.85);padding:10px 11px;border-radius:8px;position:relative}
-      .x-nav a::after,.x-nav button::after{content:"";position:absolute;left:11px;right:11px;bottom:5px;height:2px;background:var(--x-gold);transform:scaleX(0);transition:transform .3s var(--x-ease)}
-      .x-nav a:hover,.x-nav button:hover{color:#fff}.x-nav a:hover::after,.x-nav button:hover::after{transform:scaleX(1)}
+      .x-logo{display:flex;align-items:center;min-height:52px;flex-shrink:0}
+      .x-logo img{height:58px;width:auto;display:block;transition:height .35s}
+      .x-hd.is-solid .x-logo img{height:48px}
+      .x-nav{display:inline-flex;align-items:center;gap:3px;margin-left:auto;flex-shrink:1;min-width:0}
+      .x-nav a,.x-nav button{background:none;border:0;cursor:pointer;text-decoration:none;font:500 13.5px var(--x-b);color:rgba(255,255,255,.85);padding:8px 10px;margin:0 1px;border-radius:8px;position:relative;white-space:nowrap!important;display:inline-flex;align-items:center;justify-content:center;height:38px;line-height:1;transition:color .25s,background .25s;box-sizing:border-box}
+      .x-nav a::after,.x-nav button::after{content:"";position:absolute;left:10px;right:10px;bottom:3px;height:2.5px;border-radius:2px;background:var(--x-gold);transform:scaleX(0);transform-origin:center;transition:transform .25s var(--x-ease)}
+      .x-nav a:hover,.x-nav button:hover,.x-nav a:focus-visible,.x-nav button:focus-visible,.x-nav a.is-on,.x-nav button.is-on{color:#fff}
+      .x-nav a:hover::after,.x-nav button:hover::after,.x-nav a:focus-visible::after,.x-nav button:focus-visible::after,.x-nav a.is-on::after,.x-nav button.is-on::after{transform:scaleX(1)}
+      .x-hd .x-rq{flex-shrink:0;white-space:nowrap}
       .x-burger{display:none;margin-left:auto;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);border-radius:10px;cursor:pointer;position:relative}
       .x-burger span{position:absolute;left:12px;right:12px;height:2px;background:#fff;transition:transform .3s,opacity .3s}
       .x-burger span:nth-child(1){top:15px}.x-burger span:nth-child(2){top:21px}.x-burger span:nth-child(3){top:27px}
@@ -202,21 +204,21 @@
       .x-bchip{min-height:44px;padding:0 16px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:none;color:rgba(255,255,255,.88);font:500 13.5px var(--x-b);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
       .x-bchip:hover{border-color:var(--x-gold);color:#fff}
       .x-bchip[aria-pressed=true]{background:var(--x-gold);color:var(--x-dark);border-color:var(--x-gold)}
-      /* why wipe */
-      .x-wy{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:stretch}
-      .x-yard{position:relative;margin:0;min-height:520px;height:100%;border-radius:24px;overflow:hidden;background:var(--x-navy);box-shadow:0 24px 60px rgba(20,26,51,.18)}
-      .x-yard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s var(--x-ease)}
-      .x-yard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,36,.15) 0%,rgba(40,51,116,.25) 45%,rgba(10,15,36,.85) 100%);pointer-events:none}
-      .x-yard__badge{position:absolute;z-index:2;top:18px;left:18px;right:18px;width:max-content;max-width:calc(100% - 36px);display:inline-flex;align-items:center;gap:8px;background:var(--x-gold);color:var(--x-dark);font:600 13px/1.3 var(--x-h);padding:9px 14px;border-radius:99px;box-shadow:0 10px 24px rgba(10,15,36,.3)}
+      /* why facility */
+      .x-yard{position:relative;margin:0 0 32px;width:100%;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#0A0F24;box-shadow:0 24px 60px rgba(20,26,51,.18);border:1px solid var(--x-line)}
+      .x-yard img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0A0F24;display:block}
+      .x-yard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,36,.02) 0%,transparent 65%,rgba(10,15,36,.7) 100%);pointer-events:none}
+      .x-yard__badge{position:absolute;z-index:2;top:18px;right:18px;width:max-content;max-width:calc(100% - 36px);display:inline-flex;align-items:center;gap:8px;background:var(--x-gold);color:var(--x-dark);font:600 13px/1.3 var(--x-h);padding:8px 14px;border-radius:99px;box-shadow:0 10px 24px rgba(10,15,36,.3)}
       .x-yard__badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--x-dark);flex:none}
-      .x-yard figcaption{position:absolute;z-index:2;left:16px;right:16px;bottom:16px;background:rgba(10,15,36,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 14px;border-radius:12px;font-size:13px;color:rgba(255,255,255,.9)}
+      .x-yard figcaption{position:absolute;z-index:2;left:18px;bottom:18px;background:rgba(10,15,36,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 16px;border-radius:12px;font-size:13px;color:rgba(255,255,255,.9)}
       .x-yard.is-armed{clip-path:inset(0 100% 0 0 round 24px);transition:clip-path 1.2s var(--x-ease)}
-      .x-yard.is-armed img{transform:scale(1.12)}
-      .x-yard.is-armed.in{clip-path:inset(0 0 0 0 round 24px)}.x-yard.is-armed.in img{transform:none}
-      @media (max-width:900px){.x-yard{min-height:0;height:auto;aspect-ratio:16/10}}
-      @media (prefers-reduced-motion:reduce){.x-yard.is-armed{clip-path:none}.x-yard.is-armed img{transform:none}}
+      .x-yard.is-armed.in{clip-path:inset(0 0 0 0 round 24px)}
+      .x-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+      @media (max-width:960px){.x-why-grid{grid-template-columns:repeat(2,1fr)}}
+      @media (max-width:540px){.x-why-grid{grid-template-columns:1fr}}
+      @media (prefers-reduced-motion:reduce){.x-yard.is-armed{clip-path:none}}
       /* origins */
-      .x-org{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+      .x-org{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
       .x-org__card{position:relative;height:100%;padding:22px;border-radius:18px;background:var(--x-light);border:1px solid var(--x-line);transition:transform .4s var(--x-ease),box-shadow .4s,border-color .4s}
       .x-org__card:hover{transform:translateY(-6px);border-color:var(--x-navy);box-shadow:0 18px 40px rgba(20,26,51,.12)}
       .x-org__flag{display:block;width:72px;height:48px;border-radius:8px;overflow:hidden;box-shadow:0 0 0 1px rgba(20,26,51,.12),0 6px 14px rgba(20,26,51,.12)}
@@ -261,7 +263,7 @@
       .x-pre i{display:block;width:160px;height:2px;background:var(--x-gold);transform:scaleX(0);animation:x-grow .6s .15s var(--x-ease) forwards;box-shadow:0 0 12px rgba(255,212,0,.6)}
       @keyframes x-fade{to{opacity:1}}@keyframes x-grow{to{transform:none}}
       @keyframes x-preout{to{transform:translateY(-100%);visibility:hidden}}
-      .x-nav a.is-on{color:#fff}.x-nav a.is-on::after{transform:scaleX(1)}
+      .x-nav a.is-on,.x-nav button.is-on{color:#fff}.x-nav a.is-on::after,.x-nav button.is-on::after{transform:scaleX(1)}
       .x-pbtn__i{flex-shrink:0;display:block}
       .x-pbtn__l{display:inline-flex;align-items:center;gap:8px}
       .x-btn.x-mag{transition:color .35s,border-color .35s,box-shadow .35s,transform .35s var(--x-ease)}
@@ -300,18 +302,39 @@
       @keyframes x-float{to{transform:translate(-60px,60px)}}
       .x-cta__box>div{position:relative;max-width:680px}
       .x-cta__box h2{font-size:clamp(24px,3vw,34px);line-height:1.2;margin-bottom:10px}.x-cta__box p{color:rgba(255,255,255,.78)}
+      /* banking & terms section */
+      .x-bank-grid{display:grid;grid-template-columns:1.08fr 1fr;gap:28px;align-items:stretch}
+      .x-bank-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:30px;display:flex;flex-direction:column;position:relative;transition:border-color .35s,box-shadow .35s}
+      .x-bank-card:hover{border-color:rgba(255,212,0,.4);box-shadow:0 16px 44px rgba(0,0,0,.35)}
+      .x-bank-card__hd{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+      .x-bank-card__hd h3{font-size:20px;color:#fff;margin:0;display:flex;align-items:center;gap:10px}
+      .x-bank-badge{display:inline-block;background:rgba(255,212,0,.12);color:var(--x-gold);border:1px solid rgba(255,212,0,.35);font:600 12px var(--x-h);padding:4px 12px;border-radius:99px}
+      .x-bank-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin:0 0 20px;padding:0}
+      .x-bank-fields>div{display:flex;flex-direction:column;gap:3px}
+      .x-bank-fields>div.x-full{grid-column:1/-1}
+      .x-bank-fields dt{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600}
+      .x-bank-fields dd{margin:0;font-size:14.5px;color:#fff;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+      .x-bank-fields dd b{font-weight:700}
+      .x-copy{border:1px solid rgba(255,212,0,.5);background:none;color:var(--x-gold);border-radius:8px;font-size:12px;font-weight:600;padding:2px 10px;min-height:30px;cursor:pointer;transition:all .2s}
+      .x-copy:hover{background:var(--x-gold);color:var(--x-dark)}
+      .x-bank-notice{background:rgba(18,24,52,.75);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--x-gold);border-radius:12px;padding:12px 16px;margin-top:auto;display:grid;gap:8px;font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.45}
+      .x-bank-notice p{margin:0}
+      .x-bank-notice strong{color:var(--x-gold)}
+      .x-terms-list{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:12px}
+      .x-terms-list li{display:flex;gap:12px;align-items:start;font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.45}
+      .x-terms-num{flex:none;width:26px;height:26px;border-radius:8px;background:var(--x-navy);border:1px solid rgba(255,212,0,.35);color:var(--x-gold);font:700 12.5px var(--x-h);display:grid;place-items:center}
+      .x-terms-list strong{color:#fff}
+      .x-terms-accept{background:rgba(255,212,0,.08);border:1px solid rgba(255,212,0,.25);border-radius:12px;padding:12px 16px;margin-top:auto;margin-bottom:18px;font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.4}
+      .x-terms-actions{display:flex;gap:8px;flex-wrap:wrap}
+      .x-terms-actions .x-btn{justify-content:center}
       /* footer */
       .x-ft{background:var(--x-dark);padding:72px 0 0;font-size:14px;color:rgba(255,255,255,.75);border-top:3px solid var(--x-gold)}
-      .x-ft__grid{display:grid;grid-template-columns:1.3fr 1fr 1.2fr .9fr;gap:36px}
+      .x-ft__grid{display:grid;grid-template-columns:1.3fr 1.15fr 1fr;gap:44px}
       .x-ft img{height:72px;width:auto;margin-bottom:18px}
       .x-ft h4{font-size:15px;color:#fff;margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em}
       .x-ft p{margin-bottom:8px}.x-ft a{color:inherit;text-decoration:none}.x-ft a:hover{color:var(--x-gold)}
       .x-ft ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
       .x-ft dl{margin:0;display:grid;gap:10px}.x-ft dt{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}.x-ft dd{margin:0;color:#fff;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-      .x-copy{border:1px solid rgba(255,212,0,.5);background:none;color:var(--x-gold);border-radius:8px;font-size:12px;font-weight:600;padding:0 10px;min-height:30px;cursor:pointer}
-      .x-copy:hover{background:var(--x-gold);color:var(--x-dark)}
-      .x-ft__btns{display:grid;gap:10px}
-      .x-ft__btns .x-btn{justify-content:space-between}
       .x-ft__bot{margin-top:56px;padding:22px 0;border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:rgba(255,255,255,.55);display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
       /* floating */
       .x-wa{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:70;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:transform .3s}
@@ -372,27 +395,83 @@
       .x-terms h3{font-size:16px;margin-bottom:6px}.x-terms h3 b{color:var(--x-navy);margin-right:6px}
       .x-terms ul{margin:0;padding-left:18px;color:#3a4160;font-size:14px;display:grid;gap:4px}
       .x-note{margin-top:18px;padding:14px 16px;border-radius:12px;background:#fff8cc;border-left:4px solid var(--x-gold);font-size:14px}
+
+      /* a11y & touch sizing base */
+      .x-search__grid label,.x-badge,.x-card__id,.x-tbl thead th,.x-ft dt{font-size:12px}
+      .x-badge:not(.x-badge--new):not(.x-badge--res){background:#157a41}
+      .x-search{background-color:rgba(19,26,58,.86)!important;backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2)}
+      .x-totop{border-color:rgba(255,255,255,.18)}
+      .x-stat{background:#10163a!important}
+      .x-step{background:#10163a!important}
+      .x-step b{color:var(--x-gold);-webkit-text-stroke:0}
+      .x-btn,.x-btn--sm{min-height:48px!important}
+      .x-fchip i{background:var(--x-gold);color:var(--x-dark)}
+      .x-tabs button,.x-btn--sm,.x-fchip,.x-clear,.x-copy,.x-top__btn{min-height:44px}
+      .x-modal__x{width:48px!important;height:48px!important;min-width:48px;min-height:48px;padding:0}
+      .x-logo{display:flex;align-items:center;min-height:52px}
+      .x-top{height:52px}.x-hd{top:52px}.x-hd.is-solid{top:0}
+      .x-top a{display:inline-flex;align-items:center;min-height:44px}
+
       /* responsive */
-      @media (max-width:1180px){.x-nav{display:none}.x-burger{display:block}.x-hd .x-rq{display:none}.x-search__grid{grid-template-columns:repeat(4,1fr)}.x-grid{grid-template-columns:repeat(3,1fr)}.x-ft__grid{grid-template-columns:1fr 1fr}}
-      @media (max-width:900px){.x-top .x-hide-m{display:none}.x-stats .x-wrap,.x-steps,.x-why{grid-template-columns:1fr 1fr}.x-cats{grid-template-columns:1fr}.x-cat{aspect-ratio:16/10}.x-grid{grid-template-columns:1fr 1fr}.x-vm{grid-template-columns:1fr}.x-how,.x-wy,.x-ct{grid-template-columns:1fr}.x-px,.x-wipe{position:relative;top:0;aspect-ratio:16/10}.x-org{grid-template-columns:1fr 1fr}.x-ft ul a{display:inline-flex;align-items:center;min-height:44px}.x-ft ul{gap:0}}
+      @media (max-width:1380px){
+        .x-hd .x-wrap{gap:12px}
+        .x-nav{gap:1px}
+        .x-nav a,.x-nav button{padding:7px 8px;font-size:13px;margin:0}
+        .x-hd .x-rq{padding:0 16px;font-size:13px}
+      }
+      @media (max-width:1250px){
+        .x-hd .x-wrap{gap:8px}
+        .x-logo img{height:46px}
+        .x-nav{gap:0}
+        .x-nav a,.x-nav button{padding:6px 6px;font-size:12px;margin:0}
+        .x-hd .x-rq{padding:0 12px;font-size:12px;min-height:40px}
+      }
+      @media (max-width:1180px){
+        .x-nav{display:none}
+        .x-burger{display:block}
+        .x-hd .x-rq{display:none}
+        .x-search__grid{grid-template-columns:repeat(4,1fr)}
+        .x-grid{grid-template-columns:repeat(3,1fr)}
+        .x-ft__grid{grid-template-columns:1fr 1fr}
+        .x-org{grid-template-columns:repeat(3,1fr)}
+      }
+      @media (max-width:900px){
+        .x-top .x-hide-m{display:none}
+        .x-stats .x-wrap,.x-steps,.x-why{grid-template-columns:1fr 1fr}
+        .x-cats{grid-template-columns:1fr}
+        .x-cat{aspect-ratio:16/10}
+        .x-grid{grid-template-columns:1fr 1fr}
+        .x-vm{grid-template-columns:1fr}
+        .x-how,.x-wy,.x-ct{grid-template-columns:1fr}
+        .x-bank-grid{grid-template-columns:1fr}
+        .x-px,.x-wipe{position:relative;top:0;aspect-ratio:16/10}
+        .x-org{grid-template-columns:repeat(3,1fr)}
+        .x-ft ul a{display:inline-flex;align-items:center;min-height:44px}
+        .x-ft ul{gap:0}
+      }
+      @media (max-width:768px){
+        .x-org{grid-template-columns:repeat(2,1fr)}
+        .x-stats .x-wrap{grid-template-columns:repeat(2,1fr);gap:12px}
+      }
       @media (max-width:600px){
+        .x-wrap{padding:0 16px}
         .x-top{height:46px;font-size:12px}
         .x-top .x-hide-s{display:none}
         .x-top .x-tel__l{display:none}
-        .x-top .x-wrap{gap:8px;justify-content:space-between}
+        .x-top .x-wrap{gap:8px;justify-content:space-between;padding:0 14px}
         .x-top__btn{padding:3px 10px;font-size:11.5px;min-height:30px}
         .x-hd{top:46px}
-        .x-hd .x-wrap{height:74px}
+        .x-hd .x-wrap{height:72px;padding:0 14px}
         .x-hd.is-solid{top:0}
         .x-hd.is-solid .x-wrap{height:62px}
-        .x-logo img{height:52px}
-        .x-hd.is-solid .x-logo img{height:44px}
-        .x-hero{padding-top:136px;padding-bottom:44px;min-height:auto}
-        .x-hero h1{font-size:clamp(28px,7.2vw,42px);line-height:1.15;margin:14px 0 16px}
-        .x-hero__sub{font-size:15px;line-height:1.5}
-        .x-hero__btns{display:flex;flex-direction:column;gap:10px;width:100%;margin:20px 0 32px}
+        .x-logo img{height:50px}
+        .x-hd.is-solid .x-logo img{height:42px}
+        .x-hero{padding-top:130px;padding-bottom:40px;min-height:auto}
+        .x-hero h1{font-size:clamp(26px,7.5vw,38px);line-height:1.15;margin:12px 0 14px}
+        .x-hero__sub{font-size:14.5px;line-height:1.5}
+        .x-hero__btns{display:flex;flex-direction:column;gap:10px;width:100%;margin:18px 0 28px}
         .x-hero__btns .x-btn{width:100%;justify-content:center;min-height:48px}
-        .x-search{padding:16px 14px;border-radius:20px}
+        .x-search{padding:16px 14px;border-radius:18px}
         .x-search__top{flex-direction:column;gap:10px;align-items:stretch;margin-bottom:12px}
         .x-kw{width:100%;flex:none}
         .x-tabs{width:100%;display:flex}
@@ -408,50 +487,109 @@
         .x-sort{width:100%;min-height:44px;font-size:14px}
         .x-grid{grid-template-columns:1fr;gap:16px}
         .x-card__btns .x-btn{min-height:44px}
-        .x-sec{padding:60px 0}
-        .x-ft__grid{grid-template-columns:1fr}
-        .x-form{grid-template-columns:1fr}
+        .x-sec{padding:54px 0}
+        .x-head{margin-bottom:26px}
+        .x-head h2{font-size:clamp(22px,6vw,28px);line-height:1.18}
+        .x-head p{font-size:14px}
+        .x-eyebrow{font-size:11.5px}
+
+        /* Facility Yard showcase */
+        .x-yard{border-radius:16px;margin-bottom:24px}
+        .x-yard__badge{top:10px;right:10px;font-size:11px;padding:5px 10px;gap:6px;max-width:calc(100% - 20px);box-shadow:0 4px 14px rgba(0,0,0,.4)}
+        .x-yard figcaption{left:10px;right:10px;bottom:10px;font-size:11.5px;line-height:1.35;padding:6px 12px;border-radius:8px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 14px rgba(0,0,0,.4)}
+
+        /* Sourcing origins */
+        .x-org{grid-template-columns:repeat(2,1fr);gap:12px}
+        .x-org__card{padding:14px 12px;border-radius:14px}
+        .x-org__flag{width:54px;height:36px;border-radius:6px}
+        .x-org h3{font-size:14.5px;margin:12px 0 2px;word-break:break-word}
+        .x-org p{font-size:12px}
+
+        /* Protocols table */
+        .x-pfl{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:14px 16px}
+        .x-pfl .x-kw{width:100%;flex:none}
+        .x-pfl span{font-size:12.5px;color:rgba(255,255,255,.75);text-align:left}
         .x-tbl th,.x-tbl td{padding:10px 14px}
         .x-tbl thead{display:none}
-        .x-tbl tr{display:block;border-top:1px solid rgba(255,255,255,.12);padding:12px 14px}
+        .x-tbl tr{display:block;border-top:1px solid rgba(255,255,255,.12);padding:14px 14px}
         .x-tbl tr:first-child{border-top:0}
-        .x-tbl tbody th{display:block;border:0;padding:0 0 6px;font-size:16px;color:var(--x-gold)}
-        .x-tbl td{display:flex;justify-content:space-between;align-items:center;border:0;padding:4px 0;font-size:13.5px;color:rgba(255,255,255,.9);text-align:right}
-        .x-tbl td:nth-of-type(1)::before{content:"Port";font-weight:600;color:rgba(255,255,255,.55);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;text-align:left}
-        .x-tbl td:nth-of-type(2)::before{content:"Max Age";font-weight:600;color:rgba(255,255,255,.55);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;text-align:left}
-        .x-tbl td:nth-of-type(3)::before{content:"Rule";font-weight:600;color:rgba(255,255,255,.55);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;text-align:left}
-        .x-why,.x-cc{grid-template-columns:1fr}.x-prof{grid-template-columns:1fr}.x-prof img{max-width:160px}
-        .x-flow li{grid-template-columns:44px 1fr;gap:14px}.x-flow b{width:44px;height:44px;font-size:16px}.x-flow::before,.x-flow::after{left:21px}
-        .x-ctf{padding:20px}.x-pfl{padding:16px 14px}.x-tbl .x-pnote{padding:12px 16px}
-        .x-cta__box{padding:32px 20px;border-radius:22px}
-        .x-modal{padding:0;align-items:end}
-        .x-modal__box{border-radius:22px 22px 0 0;max-height:92vh;width:100%}
-        .x-modal__in{padding:22px 18px 28px}
-        .x-modal__x{width:44px;height:44px;min-width:44px;min-height:44px;margin:10px 10px 0 0}
-        .x-pre img{height:72px}
-        .x-ft img{height:60px;margin-bottom:14px}
-        .x-mlogo{height:50px;margin-bottom:14px}
+        .x-tbl tbody th{display:block;border:0;padding:0 0 8px;font-size:16px;color:var(--x-gold)}
+        .x-tbl td{display:flex;justify-content:space-between;align-items:flex-start;border:0;padding:5px 0;font-size:13.5px;color:rgba(255,255,255,.9);text-align:right;gap:12px}
+        .x-tbl td:nth-of-type(1)::before{content:"Port";font-weight:600;color:rgba(255,255,255,.55);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;text-align:left;flex-shrink:0}
+        .x-tbl td:nth-of-type(2)::before{content:"Max Age";font-weight:600;color:rgba(255,255,255,.55);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;text-align:left;flex-shrink:0}
+        .x-tbl td:nth-of-type(3){flex-direction:column;align-items:flex-start;text-align:left;gap:4px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.08);margin-top:4px}
+        .x-tbl td:nth-of-type(3)::before{content:"Rule / Requirement";font-weight:600;color:var(--x-gold);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+        .x-tbl .x-pnote{padding:12px 14px;font-size:12.5px}
+
+        /* Banking & terms */
+        .x-bank-card{padding:22px 18px;border-radius:18px}
+        .x-bank-card__hd{gap:8px;margin-bottom:16px;padding-bottom:12px}
+        .x-bank-card__hd h3{font-size:18px}
+        .x-bank-fields{grid-template-columns:1fr;gap:12px}
+        .x-bank-fields dd{font-size:14px}
+        .x-copy{min-height:38px;padding:4px 12px;font-size:12.5px}
+        .x-terms-list{gap:10px}
+        .x-terms-list li{font-size:13px;gap:10px;line-height:1.5}
+        .x-terms-num{width:24px;height:24px;font-size:12px}
+        .x-terms-actions{display:flex;flex-direction:column;gap:10px;width:100%}
+        .x-terms-actions .x-btn{width:100%;justify-content:center;min-height:48px}
+        .x-bank-notice,.x-terms-accept{padding:12px 14px;font-size:12px}
+
+        /* How to Buy timeline */
+        .x-flow li{grid-template-columns:38px 1fr;gap:12px}
+        .x-flow b{width:38px;height:38px;font-size:15px}
+        .x-flow::before,.x-flow::after{left:18px}
+        .x-flow h3{font-size:16px}
+        .x-flow p{font-size:13.5px}
+
+        /* Contact & Forms */
+        .x-why,.x-cc{grid-template-columns:1fr}
+        .x-prof{grid-template-columns:1fr}
+        .x-prof img{max-width:160px}
+        .x-ctf{padding:20px 16px;border-radius:18px}
+        .x-form{grid-template-columns:1fr}
+        .x-cta__box{padding:30px 18px;border-radius:20px}
+        .x-cta__box h2{font-size:22px}
+        .x-cta__box .x-btn{width:100%;justify-content:center}
+
+        /* Modals (bottom sheet) */
+        .x-modal{padding:0;align-items:flex-end}
+        .x-modal__box{border-radius:20px 20px 0 0;max-height:90vh;max-height:90dvh;width:100%;-webkit-overflow-scrolling:touch}
+        .x-modal__in{padding:20px 16px calc(24px + env(safe-area-inset-bottom,0px))}
+        .x-modal__x{top:8px;right:8px;margin:8px 8px 0 0;width:44px;height:44px;min-width:44px;min-height:44px}
+        .x-spec th,.x-spec td{word-break:break-word}
+
+        /* Footer */
+        .x-ft{padding:48px 0 calc(20px + env(safe-area-inset-bottom,0px))}
+        .x-ft__grid{grid-template-columns:1fr;gap:28px}
+        .x-ft img{height:54px;margin-bottom:12px}
+        .x-ft__bot{margin-top:36px;padding:18px 0;font-size:12px;flex-direction:column;gap:8px}
+
+        /* Floating buttons */
+        .x-wa{width:52px;height:52px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+        .x-wa svg{width:26px;height:26px}
+        .x-totop{right:20px;width:40px;height:40px;bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+
+        /* Logos and typography */
+        .x-pre img{height:68px}
+        .x-mlogo{height:46px;margin-bottom:12px}
         .x-field,.x-f,select.x-field,input.x-f,textarea.x-f{font-size:16px!important}
       }
-      @media (max-width:380px){.x-stats .x-wrap,.x-steps,.x-why{grid-template-columns:1fr}.x-search__grid{grid-template-columns:1fr}.x-search__grid>div:last-child{grid-column:auto}.x-org{gap:10px}.x-org__card{padding:16px}.x-org__flag{width:60px;height:40px}.x-org h3{font-size:15px}}
-      /* a11y sizing */
-      .x-search__grid label,.x-badge,.x-card__id,.x-tbl thead th,.x-ft dt{font-size:12px}
-      .x-badge:not(.x-badge--new):not(.x-badge--res){background:#157a41}
-      .x-search{background-color:rgba(19,26,58,.86)!important;backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2)}
-      .x-totop{border-color:rgba(255,255,255,.18)}
-      .x-stat{background:#10163a!important}
-      .x-step{background:#10163a!important}
-      .x-step b{color:var(--x-gold);-webkit-text-stroke:0}
-      .x-btn,.x-btn--sm{min-height:48px!important}
-      .x-modal__x{width:48px!important;height:48px!important;min-width:48px;min-height:48px;padding:0}
-      .x-fchip i{background:var(--x-gold);color:var(--x-dark)}
-      .x-tabs button,.x-btn--sm,.x-fchip,.x-clear,.x-copy,.x-top__btn{min-height:44px}
-      .x-modal__x{width:44px;height:44px}
-      .x-btn{min-height:46px}.x-btn--sm{min-height:44px}
-      .x-logo{display:flex;align-items:center;min-height:52px}
-      .x-top{height:52px}.x-hd{top:52px}.x-hd.is-solid{top:0}
-      .x-top a{display:inline-flex;align-items:center;min-height:44px}
-      @media (max-width:600px){.x-top{height:46px}.x-hd{top:46px}.x-hd.is-solid{top:0}}
+      @media (max-width:440px){
+        .x-search__grid{grid-template-columns:1fr;gap:8px}
+        .x-search__grid>div:last-child{grid-column:auto}
+        .x-card__btns{grid-template-columns:1fr;gap:8px}
+        .x-top .x-wrap{gap:6px}
+        .x-top a.x-tel{font-size:11.5px}
+        .x-top__btn{padding:2px 8px;font-size:11px}
+      }
+      @media (max-width:360px){
+        .x-org{grid-template-columns:1fr;gap:10px}
+        .x-org__card{display:flex;align-items:center;gap:14px;padding:12px 14px}
+        .x-org h3{margin:0 0 2px;font-size:15px}
+        .x-yard figcaption{font-size:10.5px;padding:4px 8px}
+        .x-yard__badge{font-size:10px;padding:3px 8px}
+      }
       @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}.x-js .x-rv,.x-js .x-hero h1 .x-w{opacity:1;transform:none}.x-hero__bg img{transform:none}.x-pre{display:none}.x-mq__track{animation:none}.x-mq{overflow-x:auto}.x-js .x-wipe{clip-path:none}.x-js .x-wipe img{transform:none}}
     </style>
   </head>
@@ -482,6 +620,7 @@
             <button data-cat="trucks">Trucks</button>
             <button data-cat="machinery">Machinery</button>
             <a href="#how">How to Buy</a>
+            <a href="#banking">Bank &amp; Terms</a>
             <a href="#why-us">Why Us</a>
             <a href="#protocols">Import Rules</a>
             <a href="#faq">FAQ</a>
@@ -498,11 +637,12 @@
         <button data-cat="trucks" style="--i:4">Trucks</button>
         <button data-cat="machinery" style="--i:5">Machinery</button>
         <a href="#how" style="--i:6">How to Buy</a>
-        <a href="#why-us" style="--i:7">Why Us</a>
-        <a href="#protocols" style="--i:8">Import Rules</a>
-        <a href="#faq" style="--i:9">FAQ</a>
-        <a href="#contact" style="--i:10">Contact</a>
-        <button class="x-btn x-btn--gold" data-open="m-quote" style="--i:11">Request Quote <span class="x-arr">→</span></button>
+        <a href="#banking" style="--i:7">Bank &amp; Terms</a>
+        <a href="#why-us" style="--i:8">Why Us</a>
+        <a href="#protocols" style="--i:9">Import Rules</a>
+        <a href="#faq" style="--i:10">FAQ</a>
+        <a href="#contact" style="--i:11">Contact</a>
+        <button class="x-btn x-btn--gold" data-open="m-quote" style="--i:12">Request Quote <span class="x-arr">→</span></button>
       </nav>
 
       <main>
@@ -617,19 +757,30 @@
         <section class="x-sec x-sec--navy" id="how">
           <div class="x-wrap">
             <div class="x-head x-rv">
-              <p class="x-eyebrow">How to buy</p>
-              <h2>From inquiry to Bill of Lading in five steps.</h2>
-              <p>Settled in USD by 100% advance T/T to ABBASI TRADING LLC.</p>
+              <p class="x-eyebrow">How to Buy From Us</p>
+              <h2>Our vehicle purchasing process is simple, transparent, and hassle-free.</h2>
+              <p>Settled in USD by 100% advance T/T to ABBASI TRADING LLC · Gunma Bank.</p>
             </div>
             <div class="x-how">
               <figure class="x-px x-rv" id="x-px"><img src="shipping.jpg" alt="Vehicles driving onto a RORO ship" /><figcaption>RORO loading for export from Japan</figcaption></figure>
-              <ol class="x-flow" id="x-flow">
-                <li class="x-rv"><b>1</b><div><h3>Send Inquiry</h3><p>Pick a unit from stock or send your specification, destination port and shipment mode.</p></div></li>
-                <li class="x-rv"><b>2</b><div><h3>Confirm Order</h3><p>Receive a Proforma Invoice from ABBASI TRADING LLC under FOB / CIF / C&amp;F, as agreed.</p></div></li>
-                <li class="x-rv"><b>3</b><div><h3>Confirm Payment</h3><p>Pay 100% advance by T/T in USD to Gunma Bank, then share the SWIFT copy.</p></div></li>
-                <li class="x-rv"><b>4</b><div><h3>Ready to Ship</h3><p>Loaded by RORO or container from Yokohama or Kobe on the earliest vessel.</p></div></li>
-                <li class="x-rv"><b>5</b><div><h3>Receive Vehicle</h3><p>The original B/L and Export Certificate reach you by courier.</p></div></li>
-              </ol>
+              <div>
+                <ol class="x-flow" id="x-flow">
+                  <li class="x-rv"><b>1</b><div><h3>Select Your Vehicle</h3><p>Choose your preferred vehicle(s) from our available stock, or send us a list of vehicles you regularly purchase.</p></div></li>
+                  <li class="x-rv"><b>2</b><div><h3>Finalize Your Deal</h3><p>Once you have selected your desired vehicle(s), we will finalize the deal and confirm all purchase details with you.</p></div></li>
+                  <li class="x-rv"><b>3</b><div><h3>Provide Consignee Details</h3><p>Share your complete consignee and shipping information with us so we can proceed with the necessary documentation.</p></div></li>
+                  <li class="x-rv"><b>4</b><div><h3>Receive Your Proforma Invoice</h3><p>We will reserve the vehicle(s) under your name and issue a Proforma Invoice (PI) containing all relevant payment and transaction details.</p></div></li>
+                  <li class="x-rv"><b>5</b><div><h3>Make Payment</h3><p>Make the payment through your bank using the banking details provided in the Proforma Invoice.</p></div></li>
+                  <li class="x-rv"><b>6</b><div><h3>Vehicle Shipment</h3><p>Once your payment has been confirmed, we will arrange shipment of your vehicle(s) from Japan to your designated destination.</p></div></li>
+                  <li class="x-rv"><b>7</b><div><h3>Receive Original Documents</h3><p>Once the vehicle(s) have departed from Japan, we will dispatch the original vehicle documents to your registered postal address via DHL.</p></div></li>
+                </ol>
+                <div class="x-rv" style="margin-top:24px; padding:22px 24px; border-radius:18px; background:linear-gradient(135deg, rgba(255,212,0,0.12) 0%, rgba(16,22,58,0.92) 100%); border:1px solid rgba(255,212,0,0.35); box-shadow:0 12px 30px rgba(0,0,0,0.25);">
+                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                    <span style="font-size:20px;">🛡️</span>
+                    <h4 style="margin:0; font-size:16.5px; color:var(--x-gold); font-family:var(--x-h); font-weight:700;">Your Trusted Partner for Vehicle Imports</h4>
+                  </div>
+                  <p style="margin:0; color:rgba(255,255,255,0.85); font-size:14px; line-height:1.65;">From vehicle selection to shipment and document delivery, we manage the entire process professionally, keeping you informed at every stage.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -640,16 +791,18 @@
               <p class="x-eyebrow">Why choose us</p>
               <h2>A registered Japanese trading company, not a middleman.</h2>
             </div>
-            <div class="x-wy">
-              <figure class="x-yard" id="x-yard"><img src="about.jpg" alt="Vehicles lined up in the Gunma export yard" /><span class="x-yard__badge">Yokohama &amp; Kobe · RORO &amp; Container</span><figcaption>Our export yard in Gunma</figcaption></figure>
-              <div class="x-why">
-                <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span><h3>Registered Japanese Exporter</h3><p>Operated by ABBASI TRADING LLC in Oura-machi, Gunma.</p></div>
-                <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 20h20M4 16l2-6h12l2 6M8 10V6h8v4"/></svg></span><h3>Yokohama &amp; Kobe Dispatch</h3><p>Scheduled RORO and container sailings under FOB, CIF and C&amp;F.</p></div>
-                <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 16V7h13v9M14 10h4l3 3v3h-7M5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span><h3>Passenger, Commercial &amp; Heavy Fleet</h3><p>Cars, trucks and buses, and excavators from Caterpillar, Komatsu and Doosan.</p></div>
-                <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 10h18L12 4 3 10zM5 10v8M9 10v8M15 10v8M19 10v8M3 21h18"/></svg></span><h3>Verified Corporate Remittance</h3><p>100% advance T/T in USD to Gunma Bank, SWIFT GUNMAJPT.</p></div>
-                <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"/></svg></span><h3>Original Export Documentation</h3><p>PI, commercial invoice, export certificate, and the original B/L on full settlement.</p></div>
-                <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3zM8.5 12l2.5 2.5 4.5-5"/></svg></span><h3>Transparent Trade Terms</h3><p>AS-IS WHERE-IS, chassis verification before payment, and port compliance.</p></div>
-              </div>
+            <figure class="x-yard x-rv" id="x-yard">
+              <img src="yard-hq.jpg" alt="Abbasi Auto Machinery official export facility and vehicle yard in Gunma, Japan" />
+              <span class="x-yard__badge">Gunma Head Office &amp; Export Facility</span>
+              <figcaption>Official Abbasi Auto Machinery export yard &amp; inspection facility in Gunma, Japan</figcaption>
+            </figure>
+            <div class="x-why-grid">
+              <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span><h3>Registered Japanese Exporter</h3><p>Operated by ABBASI TRADING LLC in Oura-machi, Gunma.</p></div>
+              <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 20h20M4 16l2-6h12l2 6M8 10V6h8v4"/></svg></span><h3>Yokohama &amp; Kobe Dispatch</h3><p>Scheduled RORO and container sailings under FOB, CIF and C&amp;F.</p></div>
+              <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 16V7h13v9M14 10h4l3 3v3h-7M5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span><h3>Passenger, Commercial &amp; Heavy Fleet</h3><p>Cars, trucks and buses, and excavators from Caterpillar, Komatsu and Doosan.</p></div>
+              <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 10h18L12 4 3 10zM5 10v8M9 10v8M15 10v8M19 10v8M3 21h18"/></svg></span><h3>Verified Corporate Remittance</h3><p>100% advance T/T in USD to Gunma Bank, SWIFT GUNMAJPT.</p></div>
+              <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"/></svg></span><h3>Original Export Documentation</h3><p>PI, commercial invoice, export certificate, and the original B/L on full settlement.</p></div>
+              <div class="x-rv"><span class="x-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3zM8.5 12l2.5 2.5 4.5-5"/></svg></span><h3>Transparent Trade Terms</h3><p>AS-IS WHERE-IS, chassis verification before payment, and port compliance.</p></div>
             </div>
           </div>
         </section>
@@ -659,7 +812,7 @@
             <div class="x-head x-rv">
               <p class="x-eyebrow">Sourcing origins</p>
               <h2>Our trading network.</h2>
-              <p>Japan, UAE and Pakistan, with Thailand coming soon.</p>
+              <p>Japan, Singapore, Thailand, United Kingdom, UAE, and China.</p>
             </div>
             <div class="x-org" id="x-org">
               <div class="x-rv"><div class="x-org__card">
@@ -667,17 +820,24 @@
                 <h3>Japan</h3><p>JP</p>
               </div></div>
               <div class="x-rv"><div class="x-org__card">
-                <span class="x-org__flag"><svg viewBox="0 0 12 6" role="img" aria-label="Flag of the United Arab Emirates"><rect width="12" height="2" fill="#00732F"/><rect y="2" width="12" height="2" fill="#fff"/><rect y="4" width="12" height="2" fill="#000"/><rect width="3" height="6" fill="#FF0000"/></svg></span>
-                <h3>United Arab Emirates</h3><p>AE</p>
+                <span class="x-org__flag"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of Singapore"><rect width="30" height="10" fill="#ED2939"/><rect y="10" width="30" height="10" fill="#fff"/><circle cx="7" cy="5" r="3.4" fill="#fff"/><circle cx="8.2" cy="5" r="3.4" fill="#ED2939"/><polygon fill="#fff" points="7.8,3.2 8,3.8 8.6,3.8 8.1,4.2 8.3,4.8 7.8,4.4 7.3,4.8 7.5,4.2 7,3.8 7.6,3.8"/><polygon fill="#fff" points="9.5,4.2 9.7,4.8 10.3,4.8 9.8,5.2 10,5.8 9.5,5.4 9,5.8 9.2,5.2 8.7,4.8 9.3,4.8"/><polygon fill="#fff" points="9.5,6.2 9.7,6.8 10.3,6.8 9.8,7.2 10,7.8 9.5,7.4 9,7.8 9.2,7.2 8.7,6.8 9.3,6.8"/><polygon fill="#fff" points="7.8,7.2 8,7.8 8.6,7.8 8.1,8.2 8.3,8.8 7.8,8.4 7.3,8.8 7.5,8.2 7,7.8 7.6,7.8"/><polygon fill="#fff" points="6.2,5.2 6.4,5.8 7,5.8 6.5,6.2 6.7,6.8 6.2,6.4 5.7,6.8 5.9,6.2 5.4,5.8 6,5.8"/></svg></span>
+                <h3>Singapore</h3><p>SG</p>
               </div></div>
               <div class="x-rv"><div class="x-org__card">
-                <span class="x-org__flag"><svg viewBox="0 0 3 2" role="img" aria-label="Flag of Pakistan"><rect width="3" height="2" fill="#01411C"/><rect width=".75" height="2" fill="#fff"/><circle cx="1.95" cy="1.05" r=".55" fill="#fff"/><circle cx="2.08" cy=".92" r=".47" fill="#01411C"/><polygon fill="#fff" points="2.156,0.638 2.214,0.712 2.302,0.680 2.250,0.758 2.308,0.833 2.217,0.807 2.164,0.885 2.161,0.791 2.070,0.765 2.159,0.732"/></svg></span>
-                <h3>Pakistan</h3><p>PK</p>
-              </div></div>
-              <div class="x-rv"><div class="x-org__card is-soon">
-                <span class="x-org__soon">Coming Soon</span>
-                <span class="x-org__flag"><svg viewBox="0 0 9 6" role="img" aria-label="Flag of Thailand"><rect width="9" height="6" fill="#A51931"/><rect y="1" width="9" height="4" fill="#F4F5F8"/><rect y="2" width="9" height="2" fill="#2D2A4A"/></svg></span>
+                <span class="x-org__flag"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of Thailand"><rect width="30" height="20" fill="#A51931"/><rect y="3.33" width="30" height="13.34" fill="#F4F5F8"/><rect y="6.67" width="30" height="6.66" fill="#2D2A4A"/></svg></span>
                 <h3>Thailand</h3><p>TH</p>
+              </div></div>
+              <div class="x-rv"><div class="x-org__card">
+                <span class="x-org__flag"><svg viewBox="0 0 60 30" role="img" aria-label="Flag of the United Kingdom"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30" stroke="#C8102E" stroke-width="2"/><path d="M60,0 L0,30" stroke="#C8102E" stroke-width="2"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></span>
+                <h3>United Kingdom</h3><p>UK</p>
+              </div></div>
+              <div class="x-rv"><div class="x-org__card">
+                <span class="x-org__flag"><svg viewBox="0 0 12 6" role="img" aria-label="Flag of the United Arab Emirates"><rect width="12" height="2" fill="#00732F"/><rect y="2" width="12" height="2" fill="#fff"/><rect y="4" width="12" height="2" fill="#000"/><rect width="3" height="6" fill="#FF0000"/></svg></span>
+                <h3>United Arab Emirates</h3><p>UAE</p>
+              </div></div>
+              <div class="x-rv"><div class="x-org__card">
+                <span class="x-org__flag"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of China"><rect width="30" height="20" fill="#DE2910"/><polygon fill="#FFDE00" points="5,2 6.18,5.62 3.09,3.38 6.91,3.38 3.82,5.62"/><polygon fill="#FFDE00" points="10,1 10.3,2.2 9.3,1.5 10.7,1.5 9.7,2.2"/><polygon fill="#FFDE00" points="12,3 12.3,4.2 11.3,3.5 12.7,3.5 11.7,4.2"/><polygon fill="#FFDE00" points="12,6 12.3,7.2 11.3,6.5 12.7,6.5 11.7,7.2"/><polygon fill="#FFDE00" points="10,8 10.3,9.2 9.3,8.5 10.7,8.5 9.7,9.2"/></svg></span>
+                <h3>China</h3><p>CN</p>
               </div></div>
             </div>
           </div>
@@ -688,7 +848,7 @@
             <div class="x-head x-rv">
               <p class="x-eyebrow">Import rules</p>
               <h2>Check your country's limits before you order.</h2>
-              <p>Age limits, inspections and drive-side rules at eight common destinations.</p>
+              <p>Age limits, inspections and drive-side rules across 24 key export destinations.</p>
             </div>
             <div class="x-tbl x-rv">
               <div class="x-pfl">
@@ -711,6 +871,77 @@
               <h2>Questions buyers ask before ordering.</h2>
             </div>
             <div class="x-faq x-rv" id="x-faq"></div>
+          </div>
+        </section>
+
+        <section class="x-sec x-sec--navy" id="banking">
+          <div class="x-wrap">
+            <div class="x-head x-rv">
+              <p class="x-eyebrow">Banking &amp; Trade Terms</p>
+              <h2>Official Remittance &amp; Export Policy</h2>
+              <p>Direct settlement in USD to Gunma Bank, Japan. Transparent trade terms and compliant export procedures under FOB, CIF, or C&amp;F.</p>
+            </div>
+            <div class="x-bank-grid">
+              <!-- Card 1: Official Bank Remittance -->
+              <div class="x-bank-card x-rv">
+                <div class="x-bank-card__hd">
+                  <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="color:var(--x-gold)"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+                    Official Bank Remittance
+                  </h3>
+                  <span class="x-bank-badge">Gunma Bank · Japan</span>
+                </div>
+                <dl class="x-bank-fields" id="x-bankft"></dl>
+                <div class="x-bank-notice">
+                  <p><strong>Fixed Bank Surcharge:</strong> <span id="bank-sec-sur">A standard fee of USD 25 must be remitted over the invoice total to cover receiving bank charges in Japan.</span></p>
+                  <p><strong>Anti-Fraud Advisory:</strong> <span id="bank-sec-ver">Please verify all vehicle chassis numbers and remittance instructions before proceeding with payment.</span></p>
+                </div>
+                <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+                  <button class="x-btn x-btn--sm" data-open="m-bank">Open Bank Remittance Sheet <span class="x-arr">→</span></button>
+                </div>
+              </div>
+
+              <!-- Card 2: Standard Trade & Export Terms -->
+              <div class="x-bank-card x-terms-card x-rv">
+                <div class="x-bank-card__hd">
+                  <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="color:var(--x-gold)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
+                    Standard Export Terms
+                  </h3>
+                  <span class="x-bank-badge">Trade Protocol</span>
+                </div>
+                <ul class="x-terms-list">
+                  <li>
+                    <span class="x-terms-num">1</span>
+                    <div><strong>100% Advance T/T:</strong> Full invoice settlement is required in USD ($) via Telegraphic Transfer directly to our designated Gunma Bank account prior to vessel loading.</div>
+                  </li>
+                  <li>
+                    <span class="x-terms-num">2</span>
+                    <div><strong>Trade IncoTerms:</strong> Quotes provided under FOB (Yokohama/Kobe), CIF, or C&amp;F as agreed. Shipping arranged on scheduled RORO or container sailings.</div>
+                  </li>
+                  <li>
+                    <span class="x-terms-num">3</span>
+                    <div><strong>Export Documentation:</strong> Original Bill of Lading (B/L) and Japan Export Certificate are promptly couriered via DHL once the vessel departs Japan.</div>
+                  </li>
+                  <li>
+                    <span class="x-terms-num">4</span>
+                    <div><strong>Stock Allocation &amp; Priority:</strong> Vehicles and machinery are subject to prior sale. Bookings are officially confirmed solely upon cleared receipt of funds.</div>
+                  </li>
+                  <li>
+                    <span class="x-terms-num">5</span>
+                    <div><strong>Inspected Condition ("AS-IS"):</strong> Units are sold strictly "AS-IS, WHERE-IS" with verified Japanese auction inspection grades and chassis details.</div>
+                  </li>
+                </ul>
+                <div class="x-terms-accept">
+                  <p style="margin:0"><strong>Irrevocable Acceptance:</strong> Remitting payment, confirming a Proforma Invoice (PI), or acting on an order constitutes full acceptance of all ABBASI TRADING LLC commercial export terms.</p>
+                </div>
+                <div class="x-terms-actions">
+                  <button class="x-btn x-btn--sm" data-open="m-terms">View All 8 Terms <span class="x-arr">→</span></button>
+                  <button class="x-btn x-btn--sm x-pbtn" data-open="m-profile"><span class="x-pbtn__l"><svg class="x-pbtn__i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>Company Profile</span> <span class="x-arr">→</span></button>
+                  <button class="x-btn x-btn--gold x-btn--sm" data-open="m-quote">Request Proforma Quote <span class="x-arr">→</span></button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -766,12 +997,12 @@
           <div class="x-ft__grid">
             <div class="x-rv">
               <img src="logo-dark.png" alt="Abbasi Auto Machinery" />
-              <p><b style="color:#fff">ABBASI TRADING LLC</b><br />アバシ・トレーディング合同会社</p>
+              <p><b style="color:#fff;font-size:16px;">ABBASI TRADING LLC</b><br /><span style="color:rgba(255,255,255,.65)">アバシ・トレーディング合同会社</span></p>
               <p>〒370-0603 群馬県邑楽町中野2886-12<br />2886-12 Nakano, Oura-machi, Gunma, Japan</p>
-              <p>Port of Loading: <span class="x-gold">Yokohama / Kobe</span></p>
+              <p style="margin-top:14px">Loading Ports: <b class="x-gold">Yokohama &amp; Kobe, Japan</b></p>
             </div>
             <div class="x-rv">
-              <h4>Contact</h4>
+              <h4>Contact Export Desk</h4>
               <ul>
                 <li><a href="tel:+81276613591" class="x-tel"><svg class="x-tel__i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="x-tel__l">Tel/Fax:</span> <b>0276-61-3591</b></a></li>
                 <li><a href="tel:+819017655641" class="x-tel"><svg class="x-tel__i" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg><span class="x-tel__l">Mobile / WhatsApp:</span> <b>090-1765-5641</b></a></li>
@@ -782,22 +1013,23 @@
               </ul>
             </div>
             <div class="x-rv">
-              <h4>Bank Remittance (USD)</h4>
-              <dl id="x-bankft"></dl>
-            </div>
-            <div class="x-rv">
-              <h4>Terms</h4>
-              <div class="x-ft__btns">
-                <button class="x-btn x-btn--sm" data-open="m-terms">Standard Terms <span class="x-arr">→</span></button>
-                <button class="x-btn x-btn--sm" data-open="m-bank">Bank &amp; Payment <span class="x-arr">→</span></button>
-                <button class="x-btn x-btn--sm x-pbtn" data-open="m-profile"><span class="x-pbtn__l"><svg class="x-pbtn__i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>Company Profile</span> <span class="x-arr">→</span></button>
-                <button class="x-btn x-btn--gold x-btn--sm" data-open="m-quote">Request Quote <span class="x-arr">→</span></button>
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#inventory" data-cat="all">Vehicle &amp; Machinery Stock →</a></li>
+                <li><a href="#how">How to Buy (7-Step Process) →</a></li>
+                <li><a href="#banking">Banking Information &amp; Terms →</a></li>
+                <li><a href="#protocols">Import Regulations &amp; Rules →</a></li>
+                <li><a href="#faq">Frequently Asked Questions →</a></li>
+                <li><a href="#contact">Direct Contact &amp; Inquiry →</a></li>
+              </ul>
+              <div style="margin-top:18px">
+                <button class="x-btn x-btn--gold x-btn--sm" data-open="m-quote">Request Proforma Quote <span class="x-arr">→</span></button>
               </div>
             </div>
           </div>
           <div class="x-ft__bot">
             <span>© <span id="x-year">2025</span> Abbasi Auto Machinery · ABBASI TRADING LLC. All Rights Reserved.</span>
-            <span>HEAVY MACHINERY | AUTOMOTIVE TRADING | GLOBAL EXPORT</span>
+            <span>HEAVY MACHINERY | AUTOMOTIVE TRADING | GLOBAL EXPORT · <a href="admin.html" style="color:var(--x-gold); text-decoration:none;">Admin Portal 🔒</a></span>
           </div>
         </div>
       </footer>
@@ -915,6 +1147,9 @@
             <p class="x-eyebrow" style="color:var(--x-navy)">Company Profile</p>
             <h2 id="mp-title">ABBASI TRADING LLC</h2>
             <p class="x-sub">アバシ・トレーディング合同会社 · Abbasi Auto Machinery</p>
+            <div style="border-radius:16px; overflow:hidden; margin-bottom:20px; aspect-ratio:16/9; border:1px solid var(--x-line); box-shadow:0 8px 24px rgba(20,26,51,.08); background:#0A0F24;">
+              <img src="yard-hq.jpg" alt="Abbasi Auto Machinery facility and export yard in Gunma, Japan" style="width:100%; height:100%; object-fit:contain; display:block;" />
+            </div>
             <div class="x-prof">
               <img src="logo-colored.jpg" alt="Abbasi Auto Machinery logo" />
               <table class="x-spec"><tbody>
@@ -971,38 +1206,34 @@
 var CP={"bank":{"name":"Gunma Bank (群馬銀行)","branch":"Oura Town Branch / Oura Machi Branch (No. 233)","accountType":"Regular Account (普通)","accountNo":"0632572","swift":"GUNMAJPT (GUNMA JPT)","beneficiary":"ABBASI TRADING LLC","surchargeNote":"A standard fee of USD 25 must be remitted over the invoice total to cover receiving bank charges in Japan.","verificationNote":"Please verify all vehicle chassis numbers and remittance instructions before proceeding with payment."},"terms":[["1","Payment Terms & Advance",["Advance Remittance: Full payment must be transferred in advance to the designated seller bank account.","Payment Reference: The Proforma Invoice (PI) number must be clearly quoted in the transfer instructions.","Transfer Confirmation: Proof of transfer (TT / SWIFT copy) must be submitted immediately upon payment."]],["2","Bank Charges & Fees",["Buyer Liability: All remittance, intermediary, receiving, and currency conversion fees are borne by the buyer/consignee.","Fixed Banking Surcharge: A standard fee of USD 25 must be remitted over the invoice total to cover receiving bank charges in Japan."]],["3","Allocation & Stock Availability",["Payment Prioritization: Vehicle booking is finalized solely upon receipt of cleared full payment.","Prior Sale: Units are subject to prior sale. If a unit is sold before full funds clear, an equivalent vehicle cannot be guaranteed at the same quoted price."]],["4","Shipping & Transfer of Risk",["Carrier Terms: Shipping is arranged subject to the carrier’s terms once full payment has cleared.","Passing of Risk: Risk of loss, damage, or theft transfers to the buyer upon delivery to the carrier / terminal facility.","Transit & Delays: The seller is not liable for carrier schedule changes, port delays, theft, or transit damage."]],["5","Export Documentation",["Document Release: Original shipping and export documents (B/L, Export Certificate) are issued and dispatched only after 100% invoice settlement.","Third-Party Liability: The seller is not liable for losses or demurrage from delayed, retained, or lost documents handled by couriers or authorities."]],["6","Customs, Taxes & Compliance",["Duties & Taxes: Customs clearance, tariffs, and local port taxes are the exclusive responsibility of the buyer.","Import Compliance: The buyer must ensure compliance with destination country laws (age limits, drive side, standards). The buyer indemnifies the seller against any denied entry or regulatory penalties."]],["7","Cancellation & Default",["Non-Cancellable: Orders become strictly non-cancellable once shipping has been booked.","Default & Resale: Failure to pay the full invoice before vessel arrival constitutes default. The seller reserves the right to resell the unit and reallocate funds to cover expenses."]],["8","\"AS-IS, WHERE-IS\" Disclaimer",["No Warranties: Vehicles are sold strictly \"AS-IS, WHERE-IS\" without express or implied warranty of condition, roadworthiness, fitness for purpose, or mechanical state.","Mileage & Maintenance: No warranty is made regarding odometer accuracy. Vehicles may require servicing or repairs at the buyer’s cost."]]],"accept":"Remitting payment, confirming this proforma, or acting on this invoice constitutes full, irrevocable acceptance of all terms, conditions, and disclaimers specified above.","pay":"T/T (Telegraphic Transfer) · 100% Advance T/T","cur":"USD ($)","trade":"FOB / CIF / C&F (as agreed)","ship":"RORO (Roll-on/roll-off) & Container"};
 var LISTS={"makes":["All Makes","Toyota","Nissan","Honda","Mitsubishi","Mitsubishi Fuso","Suzuki","Mazda","Isuzu","Lexus","Hino","Sinotruk","Caterpillar","Komatsu","Doosan","Mercedes-Benz","BMW","Audi","Volkswagen","Dodge","Ford"],"bodies":["All Types","Sedan","SUV","Wagon","Hatchback","Coupe","Sports Car","Van","Bus","Truck","Machinery","Mini Van","Pick Up","Cargo Truck","Tipper / Dump","Tractor Head","Excavator"],"years":["2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2025","2026"],"steer":["All Steering","Right Hand (RHD)","Left Hand (LHD)"],"origins":["Japan","United Arab Emirates","Germany","China","Singapore & Thailand","South Korea","United Kingdom","United States"]};
 var FAQ=[["How do I obtain the quotation for a vehicle or heavy machinery unit?","All units are listed as \"Price on Request\" because ocean freight, insurance, and agreed trade terms (FOB / CIF / C&F) vary by port of discharge (e.g., Karachi, Dubai, Mombasa) and shipment mode (RORO vs. Container). Click \"Request Quote\" or contact our Gunma export desk on WhatsApp (+81 90-1765-5641) to receive a Proforma Invoice in USD ($)."],["What are Abbasi Trading LLC’s payment and bank remittance terms?","Payments are settled in USD ($) via 100% Advance T/T (Telegraphic Transfer) to our official Gunma Bank account (Oura Machi Branch No. 233, Account No. 0632572, SWIFT: GUNMAJPT, Beneficiary: ABBASI TRADING LLC). Buyers must quote the Proforma Invoice (PI) number, add the standard USD 25 receiving bank surcharge in Japan, and submit the TT/SWIFT copy immediately."],["From which Japanese ports do you ship, and how are documents released?","Primary loading ports are Yokohama and Kobe, Japan, with scheduled RORO (Roll-on/roll-off) and container sailings. Original shipping and export documents (Bill of Lading and Export Certificate) are issued and dispatched solely after 100% invoice settlement has cleared."],["What warranties and pre-sale terms apply to exported vehicles?","Units are subject to prior sale, and vehicle booking is finalized upon receipt of cleared full payment. All vehicles and machinery are sold strictly \"AS-IS, WHERE-IS\" without express or implied warranty regarding condition, roadworthiness, or odometer accuracy, and orders become non-cancellable once shipping is booked."],["Can I source commercial trucks and heavy construction machinery?","Yes. Abbasi Auto Machinery specializes in heavy machinery (Caterpillar, Komatsu, Doosan excavators and earthmovers), commercial trucks (Hino, Mitsubishi Fuso, Sinotruk HOWO), and Japanese & global passenger vehicles."]];
-var PROTO=[["Kenya","Mombasa","8 Years","QISJ pre-export roadworthiness inspection required. Right Hand Drive only."],["Tanzania","Dar es Salaam","No age limit (Tax surcharges on 10+ yrs)","TBS/EAA pre-inspection required. RHD and LHD permitted."],["Zimbabwe","Durban / Beira Corridor","10 Years","Import license required for commercial vehicles. Clean title."],["Uganda","Mombasa Corridor","15 Years","EAA roadworthiness certification mandatory before port exit."],["Zambia","Dar es Salaam / Walvis Bay","No strict age limit","JEVIC physical inspection before shipment."],["Pakistan","Karachi Port / Qasim","3 Years (Cars), 5 Years (Jeeps)","Under Gift, Personal Baggage, or Transfer of Residence schemes."],["Jamaica","Kingston","5–6 Years","Pre-shipment inspection by approved agency (e.g., Autoterminal Japan)."],["Chile","Iquique (ZOFRI Free Zone)","Used vehicle imports restricted to free trade zones.","LHD conversion or factory LHD required for road registration."]];
+var PROTO=[
+  ["Antigua and Barbuda","St. John's","No maximum age","RHD preferred."],
+  ["Australia","Melbourne","No maximum age","RHD preferred."],
+  ["Barbados","Bridgetown","Under 4 years","Under 50,000 km, right-hand drive, import licence."],
+  ["Dominica","Roseau","No maximum age","RHD preferred."],
+  ["Fiji","Suva","Maximum 8 years","RHD preferred."],
+  ["Grenada","St. George's","Under 10 years","RHD preferred."],
+  ["Guyana","Georgetown","No maximum age","ATJ Inspection Required, right-hand drive."],
+  ["Jamaica","Kingston","5–6 Years","Pre-shipment inspection by approved agency (e.g., Autoterminal Japan)."],
+  ["Kenya","Mombasa","8 Years","QISJ pre-export roadworthiness inspection required. Right Hand Drive only."],
+  ["New Zealand","Auckland","No maximum age","Japanese vehicles may require pre-export inspection."],
+  ["Papua New Guinea","Port Moresby","Maximum 5 years","Pre-export inspection required for used vehicles from Japan."],
+  ["Saint Kitts and Nevis","Basseterre","No maximum age","EAA Inspection Required, right-hand drive."],
+  ["Saint Lucia","Castries","No maximum age","EAA Inspection Required, right-hand drive."],
+  ["Saint Vincent and the Grenadines","Kingstown","Under 12 years","RHD preferred."],
+  ["Samoa","Apia","10 years from manufacture","RHD preferred."],
+  ["Solomon Islands","Honiara","No maximum age","RHD preferred."],
+  ["Suriname","Paramaribo","Up to 8 years for cars","Buses up to 15 years; limited exceptions."],
+  ["Tanzania","Dar es Salaam","No age limit (Tax surcharges on 10+ yrs)","TBS/EAA pre-inspection required. RHD and LHD permitted."],
+  ["The Bahamas","Nassau","No maximum age","RHD preferred."],
+  ["Tonga","Nuku'alofa","10 years from manufacture","RHD preferred."],
+  ["Trinidad & Tobago","Port of Spain","Under 8 years","Import licence, one vehicle per individual every 4 years."],
+  ["Uganda","Mombasa Corridor","15 Years","EAA roadworthiness certification mandatory before port exit."],
+  ["Zambia","Dar es Salaam / Walvis Bay","No strict age limit","JEVIC physical inspection before shipment."],
+  ["Zimbabwe","Durban / Beira Corridor","10 Years","Import license required for commercial vehicles. Clean title."]
+];
 var VK=["id","stockId","make","model","year","mileage","engine","transmission","fuel","drive","steering","color","doorsSeats","origin","category","status","description"];
-var VR=[
-["car-1","JPDC09032","Toyota","Rav4",2026,"18,200 km","2500 CC","Automatic","Hybrid (Petrol)","2WD","Right Hand","Black","5D / 5S","Japan","cars","New Arrival","Immaculate condition Toyota RAV4 Hybrid with state-of-the-art safety tech, leather interior, lane assist, and optimal fuel economy."],
-["car-2","JPDC09031","Toyota","Corolla",2024,"7,200 km","1800 CC","Automatic","Hybrid (Petrol)","2WD","Right Hand","Pearl White","5D / 5S","Japan","cars","Available","Low-mileage Toyota Corolla Hybrid. Excellent commuter vehicle with pristine interior, digital dash, and full Japanese auction inspection verification."],
-["car-3","JPDC09030","Nissan","LEAF",2020,"30,000 km","Electric Motor","Automatic","Electric Vehicles","2WD","Right Hand","Pearl White","5D / 5S","Japan","cars","Available","100% Zero-emission Nissan Leaf with healthy battery state-of-health (SOH), e-Pedal technology, ProPILOT assist, and modern infotainment."],
-["car-4","JPDC09029","Toyota","Corolla Touring",2021,"12,300 km","1800 CC","Automatic","Hybrid (Petrol)","2WD","Right Hand","White","5D / 5S","Japan","cars","Available","Versatile station wagon format Toyota Corolla Touring with ample cargo capacity, roof rails, and intelligent parking sensors."],
-["car-5","JPDC09026","Toyota","Crown Royal Saloon",2022,"21,300 km","2500 CC","Automatic","Hybrid (Petrol)","2WD","Right Hand","Black Metallic","4D / 5S","Japan","cars","Available","Executive luxury sedan with opulent wood-trimmed interior, adaptive acoustic suspension, ventilated power seats, and premium sound system."],
-["car-6","JPDC09025","Toyota","Voxy Hybrid",2023,"31,200 km","1800 CC","Automatic","Hybrid (Petrol)","2WD","Right Hand","Midnight Black","5D / 7S","Japan","cars","New Arrival","Family-favorite 7-seater minivan featuring dual power sliding doors, flexible captain seats, panoramic view monitor, and rear climate control."],
-["car-7","JPDC09024","Toyota","Harrier",2023,"32,100 km","2000 CC","Automatic","Petrol","2WD","Right Hand","Pearl White","5D / 5S","Japan","cars","Available","Sleek premium crossover SUV with coupe-like silhouette, electrochromic panoramic roof, synthetic leather upholstery, and full LED headlights."],
-["car-8","JPDC09023","Toyota","Harrier Hybrid",2023,"29,200 km","2500 CC","Automatic","Hybrid (Petrol)","E-Four (4WD)","Right Hand","White Pearl","5D / 5S","Japan","cars","Available","Top-spec Harrier Hybrid E-Four with electric all-wheel drive, Head-Up Display (HUD), JBL premium 9-speaker system, and digital rearview mirror."],
-["car-9","AEDC56318","Dodge","Challenger",2015,"68,000 km","3600 CC","Automatic","Petrol","RWD","Left Hand","TorRed","2D / 5S","United Arab Emirates","cars","Available","Iconic American muscle coupe sourced directly from Dubai with GCC specs, Uconnect touchscreen navigation, sport exhaust, and alloy rims."],
-["car-10","AEDC55816","Toyota","Hilux Double Cab",2021,"44,200 km","2800 CC Turbo Diesel","Automatic","Diesel","4WD","Left Hand","Silver Metallic","4D / 5S","United Arab Emirates","cars","Available","Rugged and legendary Hilux 4x4 pickup engineered for extreme climates, reinforced suspension, differential lock, and high ground clearance."],
-["car-11","AEDC52960","Toyota","Land Cruiser Prado",2020,"52,000 km","4000 CC V6","Automatic","Petrol","4WD","Left Hand","White","5D / 7S","United Arab Emirates","cars","Available","Full-size 7-seat 4WD SUV with kinetic dynamic suspension system, dual fuel tank setup for overland expeditions, and dual climate cooling."],
-["truck-1","JPDT00018","Hino","RANGER 4-Ton Cargo",2016,"29,074 km","5120 CC Diesel","Manual","Diesel","2WD","Right Hand","White","2D / 3S","Japan","trucks","Reserved","High-durability Japanese medium-duty commercial truck, heavy-duty chassis, clean cab interior, and factory-maintained hydraulic drop-tail."],
-["truck-2","JPDT00017","Mitsubishi Fuso","Canter 3.5T",2018,"85,000 km","4200 CC","Manual","Diesel","2WD","Right Hand","White","2D / 2S","Japan","trucks","Available","Renowned Mitsubishi Canter light duty truck, high torque direct-injection diesel, reinforced rear axle, ideal for urban distribution logistics."],
-["truck-3","CNDT00040","Sinotruk","HOWO Tipper Dump Truck",2024,"28,600 km","9726 CC Euro II / IV","Manual 10-Speed","Diesel","6x4 Heavy Duty","Left Hand","White / Red Chassis","2D / 3S","China","trucks","New Arrival","Heavy duty 6x4 mining and construction dump truck with reinforced high-tensile steel bucket, air suspension driver seat, and AC cabin."],
-["truck-4","JPDT00014","Mitsubishi Fuso","Super Great Tractor Head",2017,"195,000 km","12020 CC Turbocharged","Manual with Splitter","Diesel","6x2","Right Hand","Royal Blue","2D / 3S","Japan","trucks","Available","Long-haul prime mover with sleeper berth cabin, air brake system, cruise control, fifth wheel coupling ready for intermodal container freight."],
-["machinery-1","JPDM00003","Caterpillar","CAT 308 Mini Hydraulic Excavator",2020,"3,849 Operating Hours","Cat C3.3B Turbo Diesel","Hydrostatic","Diesel","Steel Tracked with Rubber Pads","Joystick Pilot Control","Cat Yellow","Enclosed ROPS Cab","Japan","machinery","Available","Compact radius excavator equipped with sealed AC cabin, quick coupler, auxiliary hydraulics for breaker attachment, and zero-tail swing."],
-["machinery-2","JPDM00002","Caterpillar","CAT 320 Hydraulic Crawler Excavator",2021,"2,900 Operating Hours","Cat C4.4 ACERT","Variable Flow Hydraulic","Diesel","Heavy Duty Undercarriage","Electro-Hydraulic Joystick","Cat Yellow","Pressurized Soundproof Cab","Japan","machinery","Available","Industry-standard 20-ton crawler excavator with factory Grade Assist, Payload weighing system, rearview camera, and 1.2 m3 rock bucket."],
-["machinery-3","KRDM00010","Doosan","DX 140LC Crawler Excavator",2019,"4,100 Operating Hours","Doosan DL06P 6-Cylinder","Hydrostatic 2-Speed","Diesel","Tracked","Dual Pilot Controls","Doosan Orange","Deluxe Cab with Climate Control","South Korea","machinery","Available","High fuel efficiency medium earthmover with electronic power optimizing system (e-EPOS), auto-idle function, and verified maintenance logs."],
-["machinery-4","JPDM00058","Komatsu","PC210-10 Excavator",2022,"1,850 Operating Hours","Komatsu SAA6D107E-3","Hydraulic Piston Drive","Diesel","Tracked Heavy Undercarriage","Hydronamic Controls","Komatsu Yellow","High-Visibility Safety Cab","Japan","machinery","New Arrival","Low-hour Japanese machinery with KOMTRAX satellite telematics monitoring, eco-gauge display, reinforced boom, and verified JEVIC inspection."],
-["car-12","JPDC09040","Honda","Vezel Hybrid",2022,"24,100 km","1500 CC","Automatic","Hybrid (Petrol)","2WD","Right Hand","Platinum White","5D / 5S","Japan","cars","Available","Compact crossover SUV featuring Honda Sensing safety suite, adaptive cruise control, and clean auction inspection sheet."],
-["car-13","JPDC09041","Suzuki","Swift",2021,"19,400 km","1200 CC","Automatic","Petrol","2WD","Right Hand","Silver","5D / 5S","Japan","cars","Available","Agile 5-door Japanese hatchback with push-button start, automatic climate control, and compact urban efficiency."],
-["car-14","JPDC09042","Mazda","CX-5",2022,"27,800 km","2200 CC Diesel","Automatic","Diesel","4WD","Right Hand","Deep Crystal Blue","5D / 5S","Japan","cars","Available","Skyactiv-D AWD SUV featuring Bose audio, 360-degree camera, power tailgate, and leather interior."],
-["car-15","JPDC09043","Lexus","RX 450h",2021,"22,500 km","3500 CC","Automatic","Hybrid (Petrol)","AWD","Right Hand","Obsidian Black","5D / 5S","Japan","cars","Available","Executive luxury hybrid SUV with triple-beam LED headlights, panoramic sunroof, and ventilated leather seating."],
-["car-16","DEDC01102","Mercedes-Benz","C200 Avantgarde",2022,"18,900 km","1500 CC Turbo","Automatic","Petrol","RWD","Right Hand","Polar White","4D / 5S","Germany","cars","Available","Executive European sedan with digital cockpit, ambient interior lighting, and full service record."],
-["car-17","DEDC01105","BMW","X5 xDrive",2021,"31,000 km","3000 CC","Automatic","Diesel","4WD","Left Hand","Mineral White","5D / 5S","Germany","cars","Available","Premium German SUV with M-Sport trim, head-up display, air suspension, and export readiness."],
-["car-18","DEDC01109","Audi","A5 Coupe",2020,"29,500 km","2000 CC TFSI","Automatic","Petrol","AWD","Right Hand","Metallic Gray","2D / 4S","Germany","cars","Available","Sport coupe with Quattro all-wheel drive, virtual cockpit, and Bang & Olufsen audio."],
-["car-19","DEDC01112","Volkswagen","Golf TSI",2021,"21,200 km","1400 CC","Automatic","Petrol","2WD","Right Hand","Pure White","5D / 5S","Japan","cars","Available","Japanese-imported European hatchback with DSG transmission, adaptive cruise, and immaculate cabin."],
-["truck-5","JPDT00059","Isuzu","Forward 4-Ton Truck",2017,"112,000 km","5190 CC Diesel","Manual","Diesel","2WD","Right Hand","White","2D / 3S","Japan","trucks","Available","Reliable Japanese Isuzu Forward medium cargo truck ready for container or RORO shipment from Yokohama."],
-["truck-6","JPDB00021","Toyota","Coaster 29-Seater Bus",2019,"64,000 km","4000 CC Diesel","Manual","Diesel","2WD","Right Hand","White / Gold","3D / 29S","Japan","trucks","Available","High-roof Japanese passenger bus with dual AC, automatic folding entry door, and commercial fleet upkeep."]];
+var VR=[["car-1", "JPDC09032", "Toyota", "Rav4", 2026, "18,200 km", "2500 CC", "Automatic", "Hybrid (Petrol)", "2WD", "Right Hand", "Black", "5D / 5S", "Japan", "cars", "Reserved", "Immaculate condition Toyota RAV4 Hybrid with state-of-the-art safety tech, leather interior, lane assist, and optimal fuel economy."], ["car-2", "JPDC09031", "Toyota", "Corolla", 2024, "7,200 km", "1800 CC", "Automatic", "Hybrid (Petrol)", "2WD", "Right Hand", "Pearl White", "5D / 5S", "Japan", "cars", "Available", "Low-mileage Toyota Corolla Hybrid. Excellent commuter vehicle with pristine interior, digital dash, and full Japanese auction inspection verification."], ["car-3", "JPDC09030", "Nissan", "LEAF", 2020, "30,000 km", "Electric Motor", "Automatic", "Electric Vehicles", "2WD", "Right Hand", "Pearl White", "5D / 5S", "Japan", "cars", "Available", "100% Zero-emission Nissan Leaf with healthy battery state-of-health (SOH), e-Pedal technology, ProPILOT assist, and modern infotainment."], ["car-4", "JPDC09029", "Toyota", "Corolla Touring", 2021, "12,300 km", "1800 CC", "Automatic", "Hybrid (Petrol)", "2WD", "Right Hand", "White", "5D / 5S", "Japan", "cars", "Available", "Versatile station wagon format Toyota Corolla Touring with ample cargo capacity, roof rails, and intelligent parking sensors."], ["car-5", "JPDC09026", "Toyota", "Crown Royal Saloon", 2022, "21,300 km", "2500 CC", "Automatic", "Hybrid (Petrol)", "2WD", "Right Hand", "Black Metallic", "4D / 5S", "Japan", "cars", "Available", "Executive luxury sedan with opulent wood-trimmed interior, adaptive acoustic suspension, ventilated power seats, and premium sound system."], ["car-6", "JPDC09025", "Toyota", "Voxy Hybrid", 2023, "31,200 km", "1800 CC", "Automatic", "Hybrid (Petrol)", "2WD", "Right Hand", "Midnight Black", "5D / 7S", "Japan", "cars", "New Arrival", "Family-favorite 7-seater minivan featuring dual power sliding doors, flexible captain seats, panoramic view monitor, and rear climate control."], ["car-7", "JPDC09024", "Toyota", "Harrier", 2023, "32,100 km", "2000 CC", "Automatic", "Petrol", "2WD", "Right Hand", "Pearl White", "5D / 5S", "Japan", "cars", "Available", "Sleek premium crossover SUV with coupe-like silhouette, electrochromic panoramic roof, synthetic leather upholstery, and full LED headlights."], ["car-8", "JPDC09023", "Toyota", "Harrier Hybrid", 2023, "29,200 km", "2500 CC", "Automatic", "Hybrid (Petrol)", "E-Four (4WD)", "Right Hand", "White Pearl", "5D / 5S", "Japan", "cars", "Available", "Top-spec Harrier Hybrid E-Four with electric all-wheel drive, Head-Up Display (HUD), JBL premium 9-speaker system, and digital rearview mirror."], ["car-9", "AEDC56318", "Dodge", "Challenger", 2015, "68,000 km", "3600 CC", "Automatic", "Petrol", "RWD", "Left Hand", "TorRed", "2D / 5S", "United Arab Emirates", "cars", "Available", "Iconic American muscle coupe sourced directly from Dubai with GCC specs, Uconnect touchscreen navigation, sport exhaust, and alloy rims."], ["car-10", "AEDC55816", "Toyota", "Hilux Double Cab", 2021, "44,200 km", "2800 CC Turbo Diesel", "Automatic", "Diesel", "4WD", "Left Hand", "Silver Metallic", "4D / 5S", "United Arab Emirates", "cars", "Available", "Rugged and legendary Hilux 4x4 pickup engineered for extreme climates, reinforced suspension, differential lock, and high ground clearance."], ["car-11", "AEDC52960", "Toyota", "Land Cruiser Prado", 2020, "52,000 km", "4000 CC V6", "Automatic", "Petrol", "4WD", "Left Hand", "White", "5D / 7S", "United Arab Emirates", "cars", "Available", "Full-size 7-seat 4WD SUV with kinetic dynamic suspension system, dual fuel tank setup for overland expeditions, and dual climate cooling."], ["truck-1", "JPDT00018", "Hino", "RANGER 4-Ton Cargo", 2016, "29,074 km", "5120 CC Diesel", "Manual", "Diesel", "2WD", "Right Hand", "White", "2D / 3S", "Japan", "trucks", "Reserved", "High-durability Japanese medium-duty commercial truck, heavy-duty chassis, clean cab interior, and factory-maintained hydraulic drop-tail."], ["truck-2", "JPDT00017", "Mitsubishi Fuso", "Canter 3.5T", 2018, "85,000 km", "4200 CC", "Manual", "Diesel", "2WD", "Right Hand", "White", "2D / 2S", "Japan", "trucks", "Available", "Renowned Mitsubishi Canter light duty truck, high torque direct-injection diesel, reinforced rear axle, ideal for urban distribution logistics."], ["truck-3", "CNDT00040", "Sinotruk", "HOWO Tipper Dump Truck", 2024, "28,600 km", "9726 CC Euro II / IV", "Manual 10-Speed", "Diesel", "6x4 Heavy Duty", "Left Hand", "White / Red Chassis", "2D / 3S", "China", "trucks", "New Arrival", "Heavy duty 6x4 mining and construction dump truck with reinforced high-tensile steel bucket, air suspension driver seat, and AC cabin."], ["truck-4", "JPDT00014", "Mitsubishi Fuso", "Super Great Tractor Head", 2017, "195,000 km", "12020 CC Turbocharged", "Manual with Splitter", "Diesel", "6x2", "Right Hand", "Royal Blue", "2D / 3S", "Japan", "trucks", "Available", "Long-haul prime mover with sleeper berth cabin, air brake system, cruise control, fifth wheel coupling ready for intermodal container freight."], ["machinery-1", "JPDM00003", "Caterpillar", "CAT 308 Mini Hydraulic Excavator", 2020, "3,849 Operating Hours", "Cat C3.3B Turbo Diesel", "Hydrostatic", "Diesel", "Steel Tracked with Rubber Pads", "Joystick Pilot Control", "Cat Yellow", "Enclosed ROPS Cab", "Japan", "machinery", "Available", "Compact radius excavator equipped with sealed AC cabin, quick coupler, auxiliary hydraulics for breaker attachment, and zero-tail swing."], ["machinery-2", "JPDM00002", "Caterpillar", "CAT 320 Hydraulic Crawler Excavator", 2021, "2,900 Operating Hours", "Cat C4.4 ACERT", "Variable Flow Hydraulic", "Diesel", "Heavy Duty Undercarriage", "Electro-Hydraulic Joystick", "Cat Yellow", "Pressurized Soundproof Cab", "Japan", "machinery", "Available", "Industry-standard 20-ton crawler excavator with factory Grade Assist, Payload weighing system, rearview camera, and 1.2 m3 rock bucket."], ["machinery-3", "KRDM00010", "Doosan", "DX 140LC Crawler Excavator", 2019, "4,100 Operating Hours", "Doosan DL06P 6-Cylinder", "Hydrostatic 2-Speed", "Diesel", "Tracked", "Dual Pilot Controls", "Doosan Orange", "Deluxe Cab with Climate Control", "South Korea", "machinery", "Available", "High fuel efficiency medium earthmover with electronic power optimizing system (e-EPOS), auto-idle function, and verified maintenance logs."], ["machinery-4", "JPDM00058", "Komatsu", "PC210-10 Excavator", 2022, "1,850 Operating Hours", "Komatsu SAA6D107E-3", "Hydraulic Piston Drive", "Diesel", "Tracked Heavy Undercarriage", "Hydronamic Controls", "Komatsu Yellow", "High-Visibility Safety Cab", "Japan", "machinery", "New Arrival", "Low-hour Japanese machinery with KOMTRAX satellite telematics monitoring, eco-gauge display, reinforced boom, and verified JEVIC inspection."], ["car-12", "JPDC09040", "Honda", "Vezel Hybrid", 2022, "24,100 km", "1500 CC", "Automatic", "Hybrid (Petrol)", "2WD", "Right Hand", "Platinum White", "5D / 5S", "Japan", "cars", "Available", "Compact crossover SUV featuring Honda Sensing safety suite, adaptive cruise control, and clean auction inspection sheet."], ["car-13", "JPDC09041", "Suzuki", "Swift", 2021, "19,400 km", "1200 CC", "Automatic", "Petrol", "2WD", "Right Hand", "Silver", "5D / 5S", "Japan", "cars", "Available", "Agile 5-door Japanese hatchback with push-button start, automatic climate control, and compact urban efficiency."], ["car-14", "JPDC09042", "Mazda", "CX-5", 2022, "27,800 km", "2200 CC Diesel", "Automatic", "Diesel", "4WD", "Right Hand", "Deep Crystal Blue", "5D / 5S", "Japan", "cars", "Available", "Skyactiv-D AWD SUV featuring Bose audio, 360-degree camera, power tailgate, and leather interior."], ["car-15", "JPDC09043", "Lexus", "RX 450h", 2021, "22,500 km", "3500 CC", "Automatic", "Hybrid (Petrol)", "AWD", "Right Hand", "Obsidian Black", "5D / 5S", "Japan", "cars", "Available", "Executive luxury hybrid SUV with triple-beam LED headlights, panoramic sunroof, and ventilated leather seating."], ["car-16", "DEDC01102", "Mercedes-Benz", "C200 Avantgarde", 2022, "18,900 km", "1500 CC Turbo", "Automatic", "Petrol", "RWD", "Right Hand", "Polar White", "4D / 5S", "Germany", "cars", "Available", "Executive European sedan with digital cockpit, ambient interior lighting, and full service record."], ["car-17", "DEDC01105", "BMW", "X5 xDrive", 2021, "31,000 km", "3000 CC", "Automatic", "Diesel", "4WD", "Left Hand", "Mineral White", "5D / 5S", "Germany", "cars", "Available", "Premium German SUV with M-Sport trim, head-up display, air suspension, and export readiness."], ["car-18", "DEDC01109", "Audi", "A5 Coupe", 2020, "29,500 km", "2000 CC TFSI", "Automatic", "Petrol", "AWD", "Right Hand", "Metallic Gray", "2D / 4S", "Germany", "cars", "Available", "Sport coupe with Quattro all-wheel drive, virtual cockpit, and Bang & Olufsen audio."], ["car-19", "DEDC01112", "Volkswagen", "Golf TSI", 2021, "21,200 km", "1400 CC", "Automatic", "Petrol", "2WD", "Right Hand", "Pure White", "5D / 5S", "Japan", "cars", "Available", "Japanese-imported European hatchback with DSG transmission, adaptive cruise, and immaculate cabin."], ["truck-5", "JPDT00059", "Isuzu", "Forward 4-Ton Truck", 2017, "112,000 km", "5190 CC Diesel", "Manual", "Diesel", "2WD", "Right Hand", "White", "2D / 3S", "Japan", "trucks", "Available", "Reliable Japanese Isuzu Forward medium cargo truck ready for container or RORO shipment from Yokohama."], ["truck-6", "JPDB00021", "Toyota", "Coaster 29-Seater Bus", 2019, "64,000 km", "4000 CC Diesel", "Manual", "Diesel", "2WD", "Right Hand", "White / Gold", "3D / 29S", "Japan", "trucks", "Available", "High-roof Japanese passenger bus with dual AC, automatic folding entry door, and commercial fleet upkeep."]];
     </script>
     <script>
 (function () {
@@ -1017,6 +1248,18 @@ var VR=[
     </script>
     <script>
 (function () {
+  try {
+    var storedVR = localStorage.getItem("abbasi_inventory");
+    if (storedVR) {
+      var parsedVR = JSON.parse(storedVR);
+      if (Array.isArray(parsedVR) && parsedVR.length) VR = parsedVR;
+    }
+    var storedCP = localStorage.getItem("abbasi_company");
+    if (storedCP) {
+      var parsedCP = JSON.parse(storedCP);
+      if (parsedCP && parsedCP.bank) Object.assign(CP, parsedCP);
+    }
+  } catch(e) {}
   var V = VR.map(function (a) { var o = {}; VK.forEach(function (k, i) { o[k] = a[i]; }); return o; });
   var byId = {}; V.forEach(function (v) { byId[v.id] = v; });
   var $ = function (s) { return document.querySelector(s); };
@@ -1026,7 +1269,14 @@ var VR=[
   var WA = "https://wa.me/819017655641?text=", MAIL = "abbasiautomachinery" + String.fromCharCode(64) + "gmail.com", CO = "Hello Abbasi Auto Machinery (ABBASI TRADING LLC), ";
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
   var pool = {}; $$("#x-pool img").forEach(function (i) { pool[i.getAttribute("data-id")] = i; });
-  function photo(id) { var c = pool[id].cloneNode(true); c.removeAttribute("data-id"); return c; }
+  function photo(id) {
+    if (pool[id]) { var c = pool[id].cloneNode(true); c.removeAttribute("data-id"); return c; }
+    var v = byId[id] || {};
+    var im = document.createElement("img");
+    im.src = v.image || "hero.jpg";
+    im.alt = (v.year ? v.year + " " : "") + (v.make || "") + " " + (v.model || "Vehicle");
+    return im;
+  }
   var CATN = { all: "All", cars: "Cars", trucks: "Trucks & Buses", machinery: "Machinery" };
   var TRUCK = ["hilux", "ranger", "canter", "howo", "super great", "forward"], EXC = ["excavator", "dx 140"], CPE = ["challenger", "a5 coupe"];
   var BODY = { SUV: ["rav4", "harrier", "prado", "vezel", "cx-5", "rx 450h", "x5"], Sedan: ["corolla", "crown", "c200"], Wagon: ["touring"], Hatchback: ["leaf", "swift", "golf"], Coupe: CPE, "Sports Car": CPE, Van: ["voxy"], "Mini Van": ["voxy"], Bus: ["coaster"], Truck: TRUCK, Machinery: EXC, Excavator: EXC, "Pick Up": ["hilux"], "Cargo Truck": ["ranger", "canter", "forward"], "Tipper / Dump": ["howo"], "Tractor Head": ["super great"] };
@@ -1110,6 +1360,7 @@ var VR=[
     Object.keys(F).forEach(function (k) { if (k !== "model") F[k].value = S[k]; });
     fillModels();
     $$("#f-cat button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === S.cat); });
+    $$(".x-nav button[data-cat]").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-cat") === S.cat); });
     render();
   }
   var go = function () { $("#inventory").scrollIntoView({ behavior: RM ? "auto" : "smooth" }); };
@@ -1188,9 +1439,29 @@ var VR=[
   $$("#vm-form, #mq-form, #ct-form").forEach(function (f) {
     f.addEventListener("submit", function (e) {
       e.preventDefault();
-      var lines = []; new FormData(f).forEach(function (val, k) { if (String(val).trim()) lines.push(k + ": " + val); });
+      var lines = []; var formObj = {}; new FormData(f).forEach(function (val, k) { if (String(val).trim()) { lines.push(k + ": " + val); formObj[k] = val; } });
       var kind = f.getAttribute("data-kind"), veh = kind === "veh", ct = kind === "contact", head = veh ? vehMsg(cur) : ct ? CO + "I have an export inquiry." : genMsg();
       var body = head + "\n\n" + lines.join("\n"), subj = veh ? "Proforma request: " + cur.stockId + " " + cur.make + " " + cur.model : ct ? "Website inquiry" : "Proforma Invoice request";
+      try {
+        var inqItem = {
+          id: "INQ-" + Date.now(),
+          date: new Date().toISOString(),
+          kind: kind,
+          vehicle: veh && cur ? (cur.stockId + " · " + cur.year + " " + cur.make + " " + cur.model) : "General Inquiry",
+          customerName: formObj.name || formObj.qf_name || formObj.c_name || "Customer",
+          email: formObj.email || formObj.qf_email || formObj.c_email || "",
+          phone: formObj.phone || formObj.qf_phone || formObj.c_phone || "",
+          country: formObj.country || formObj.qf_country || "",
+          port: formObj.port || formObj.qf_port || "",
+          message: formObj.notes || formObj.message || lines.join("; "),
+          data: formObj,
+          status: "New"
+        };
+        var storedInqs = JSON.parse(localStorage.getItem("abbasi_inquiries") || "[]");
+        storedInqs.unshift(inqItem);
+        localStorage.setItem("abbasi_inquiries", JSON.stringify(storedInqs));
+        fetch("/api/inquiries", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(inqItem) }).catch(function(){});
+      } catch (err) {}
       var ok = f.parentNode.querySelector(".x-ok");
       ok.querySelector(".x-ok-mail").href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
       ok.querySelector(".x-ok-wa").href = WA + encodeURIComponent(body);
@@ -1207,17 +1478,25 @@ var VR=[
   $("#mb-spec").innerHTML = [["Bank", B.name], ["Branch", B.branch], ["Account Type", B.accountType], ["Account No.", B.accountNo], ["SWIFT", B.swift], ["Beneficiary", B.beneficiary], ["Payment Terms", CP.pay], ["Currency", CP.cur], ["Trade Terms", CP.trade], ["Shipment", CP.ship]]
     .map(function (r) { return "<tr><th>" + r[0] + "</th><td>" + esc(r[1]) + "</td></tr>"; }).join("");
   $("#mb-sur").textContent = B.surchargeNote; $("#mb-ver").textContent = B.verificationNote;
-  $("#x-bankft").innerHTML = "<div><dt>Bank</dt><dd>" + esc(B.name) + "</dd></div><div><dt>Branch</dt><dd>" + esc(B.branch) + "</dd></div><div><dt>Account</dt><dd>" + esc(B.accountType) + "</dd></div>" +
-    '<div><dt>Account No.</dt><dd>' + B.accountNo + ' <button class="x-copy" data-copy="' + B.accountNo + '" data-label="Account number">Copy</button></dd></div>' +
-    '<div><dt>SWIFT</dt><dd>' + esc(B.swift) + ' <button class="x-copy" data-copy="GUNMAJPT" data-label="SWIFT code">Copy</button></dd></div><div><dt>Beneficiary</dt><dd>' + esc(B.beneficiary) + "</dd></div>";
+  if ($("#bank-sec-sur")) $("#bank-sec-sur").textContent = B.surchargeNote;
+  if ($("#bank-sec-ver")) $("#bank-sec-ver").textContent = B.verificationNote;
+  if ($("#x-bankft")) {
+    $("#x-bankft").innerHTML = "<div><dt>Bank</dt><dd>" + esc(B.name) + "</dd></div>" +
+      "<div><dt>Branch</dt><dd>" + esc(B.branch) + "</dd></div>" +
+      "<div><dt>Account Type</dt><dd>" + esc(B.accountType) + "</dd></div>" +
+      '<div><dt>Account No.</dt><dd><b>' + esc(B.accountNo) + '</b> <button class="x-copy" data-copy="' + esc(B.accountNo) + '" data-label="Account number">Copy</button></dd></div>' +
+      '<div><dt>SWIFT / BIC</dt><dd><b>' + esc(B.swift) + '</b> <button class="x-copy" data-copy="GUNMAJPT" data-label="SWIFT code">Copy</button></dd></div>' +
+      "<div><dt>Currency</dt><dd>" + esc(CP.cur) + "</dd></div>" +
+      '<div class="x-full"><dt>Beneficiary</dt><dd><b class="x-gold">' + esc(B.beneficiary) + "</b></dd></div>";
+  }
   $$("[data-copy]").forEach(function (b) { b.addEventListener("click", function () { copy(b.getAttribute("data-copy"), b.getAttribute("data-label")); }); });
 
   /* faq + protocols */
   $("#x-faq").innerHTML = FAQ.map(function (f, i) { var o = i === 0; return '<div><button aria-expanded="' + o + '" aria-controls="fq-' + i + '" id="fb-' + i + '">' + esc(f[0]) + '<i aria-hidden="true"></i></button><div class="x-faq__p' + (o ? " on" : "") + '" id="fq-' + i + '" role="region" aria-labelledby="fb-' + i + '"><div><p>' + esc(f[1]) + "</p></div></div></div>"; }).join("");
   $("#x-faq").addEventListener("click", function (e) { var b = e.target.closest("button"); if (!b) return; var o = b.getAttribute("aria-expanded") !== "true"; b.setAttribute("aria-expanded", o); b.nextElementSibling.classList.toggle("on", o); });
   function proto() {
-    var q = $("#x-pq").value.trim().toLowerCase(), rows = PROTO.filter(function (p) { return !q || p[0].toLowerCase().indexOf(q) >= 0; });
-    $("#x-proto").innerHTML = rows.length ? rows.map(function (p) { return "<tr><th>" + esc(p[0]) + "</th><td>" + esc(p[1]) + "</td><td>" + esc(p[2]) + "</td><td>" + esc(p[3]) + "</td></tr>"; }).join("") : '<tr><td colspan="4">No listed rules for that country yet. Ask our export desk.</td></tr>';
+    var q = $("#x-pq").value.trim().toLowerCase(), rows = PROTO.filter(function (p) { return !q || p[0].toLowerCase().indexOf(q) >= 0 || p[1].toLowerCase().indexOf(q) >= 0; });
+    $("#x-proto").innerHTML = rows.length ? rows.map(function (p) { return "<tr><th>" + esc(p[0]) + "</th><td>" + esc(p[1]) + "</td><td>" + esc(p[2]) + "</td><td>" + esc(p[3]) + "</td></tr>"; }).join("") : '<tr><td colspan="4">No listed rules for that country or port yet. Ask our export desk.</td></tr>';
     $("#x-pn").textContent = rows.length + " of " + PROTO.length + " countries";
   }
   $("#x-pq").addEventListener("input", proto); proto();

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "emp-001",
+    "name": "Ali Anwar",
+    "email": "aliianwar45467@gmail.com",
+    "phone": "+81 90-1765-5641",
+    "role": "Super Admin",
+    "department": "Executive Management",
+    "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=AliAnwar",
+    "status": "Active",
+    "joinDate": "2024-01-15",
+    "lastActive": "Just now",
+    "permissions": {
+      "manage_inventory": true,
+      "delete_inventory": true,
+      "view_invoices": true,
+      "manage_leads": true,
+      "manage_staff": true,
+      "view_audit_logs": true,
+      "edit_settings": true
+    }
+  },
+  {
+    "id": "emp-002",
+    "name": "Mohammad Abbasi",
+    "email": "abbasi.trading.jp@gmail.com",
+    "phone": "+81 80-2345-6789",
+    "role": "Managing Director",
+    "department": "Executive Management",
+    "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=MohammadAbbasi",
+    "status": "Active",
+    "joinDate": "2023-06-01",
+    "lastActive": "15 mins ago",
+    "permissions": {
+      "manage_inventory": true,
+      "delete_inventory": true,
+      "view_invoices": true,
+      "manage_leads": true,
+      "manage_staff": true,
+      "view_audit_logs": true,
+      "edit_settings": true
+    }
+  },
+  {
+    "id": "emp-003",
+    "name": "Kenji Takahashi",
+    "email": "k.takahashi@abbasiauto.jp",
+    "phone": "+81 90-3321-4455",
+    "role": "Yard Manager",
+    "department": "Gunma Yard & Inspection",
+    "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=KenjiTakahashi",
+    "status": "Active",
+    "joinDate": "2024-03-10",
+    "lastActive": "42 mins ago",
+    "permissions": {
+      "manage_inventory": true,
+      "delete_inventory": false,
+      "view_invoices": false,
+      "manage_leads": false,
+      "manage_staff": false,
+      "view_audit_logs": true,
+      "edit_settings": false
+    }
+  },
+  {
+    "id": "emp-004",
+    "name": "Fatima Zahra",
+    "email": "fatima.sales@abbasiauto.jp",
+    "phone": "+81 80-5544-3322",
+    "role": "Export Sales Desk",
+    "department": "International Sales",
+    "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=FatimaZahra",
+    "status": "Active",
+    "joinDate": "2024-05-20",
+    "lastActive": "2 hours ago",
+    "permissions": {
+      "manage_inventory": false,
+      "delete_inventory": false,
+      "view_invoices": true,
+      "manage_leads": true,
+      "manage_staff": false,
+      "view_audit_logs": false,
+      "edit_settings": false
+    }
+  },
+  {
+    "id": "emp-005",
+    "name": "Ryohei Sato",
+    "email": "r.sato@abbasiauto.jp",
+    "phone": "+81 90-7788-9900",
+    "role": "Logistics Dispatcher",
+    "department": "Yokohama / Kobe Port Logistics",
+    "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=RyoheiSato",
+    "status": "Active",
+    "joinDate": "2024-08-01",
+    "lastActive": "5 hours ago",
+    "permissions": {
+      "manage_inventory": true,
+      "delete_inventory": false,
+      "view_invoices": true,
+      "manage_leads": false,
+      "manage_staff": false,
+      "view_audit_logs": false,
+      "edit_settings": false
+    }
+  }
+]
