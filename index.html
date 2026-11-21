@@ -11,12 +11,12 @@
     <script>document.documentElement.classList.add("x-js");</script>
     <style>
       :root{--x-navy:#283374;--x-dark:#0A0F24;--x-dark2:#121a3a;--x-gold:#FFD400;--x-light:#F5F6FA;--x-ink:#141a33;--x-mut:#5b6280;--x-line:#e3e6ef;--x-ok:#1f9d55;--x-h:'Poppins',system-ui,sans-serif;--x-b:'Inter',system-ui,sans-serif;--x-ease:cubic-bezier(.2,.8,.2,1)}
-      html{scroll-padding-top:84px;background:#0A0F24;overflow-x:hidden;-webkit-text-size-adjust:100%}
+      html{scroll-padding-top:84px;background:#0A0F24;overflow-x:hidden;overflow-x:clip;overflow-y:auto;overscroll-behavior:auto!important;overscroll-behavior-y:auto!important;touch-action:pan-y pinch-zoom!important;-webkit-text-size-adjust:100%}
       .page,.x-hero,.x-search{background-color:var(--x-dark)}
       .x-stats,.x-sec--navy,.x-cta__box,.x-step,.x-tbl{background-color:var(--x-dark)!important}
       .x-search{background-color:rgba(18,24,52,.72)}
-      body{margin:0;background:var(--x-dark);color:#fff;font-family:var(--x-b);font-size:15px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-      .page{max-width:none;padding:0;margin:0}
+      body{margin:0;background:var(--x-dark);color:#fff;font-family:var(--x-b);font-size:15px;line-height:1.55;overflow-x:hidden;overflow-x:clip;overflow-y:visible!important;overscroll-behavior:auto!important;overscroll-behavior-y:auto!important;touch-action:pan-y pinch-zoom!important;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+      .page{max-width:none;padding:0;margin:0;overflow-x:clip}
       h1,h2,h3,h4{font-family:var(--x-h);font-weight:700;letter-spacing:-.01em}
       button,input,select,textarea{font:inherit;color:inherit}
       .x-wrap{max-width:1240px;margin:0 auto;padding:0 20px}
@@ -257,8 +257,8 @@
       .x-prof .x-spec td{padding-top:0;padding-bottom:0}.x-prof .x-spec th{padding-top:12px}
       .x-prof .x-spec td:not(:has(a)){padding:9px 0}
       /* polish */
-      .x-pre{position:fixed;inset:0;z-index:400;background:var(--x-dark);display:grid;place-items:center;animation:x-preout .45s .75s var(--x-ease) forwards}
-      .x-pre div{display:grid;justify-items:center;gap:18px}
+      .x-pre{position:fixed;inset:0;z-index:400;background:var(--x-dark);display:grid;place-items:center;animation:x-preout .45s .75s var(--x-ease) forwards;pointer-events:none}
+      .x-pre div{display:grid;justify-items:center;gap:18px;pointer-events:none}
       .x-pre img{height:84px;width:auto;opacity:0;animation:x-fade .4s .05s ease-out forwards}
       .x-pre i{display:block;width:160px;height:2px;background:var(--x-gold);transform:scaleX(0);animation:x-grow .6s .15s var(--x-ease) forwards;box-shadow:0 0 12px rgba(255,212,0,.6)}
       @keyframes x-fade{to{opacity:1}}@keyframes x-grow{to{transform:none}}

@@ -96,21 +96,20 @@
 :root[data-theme="dark"] { color-scheme: dark; }
 
 * { box-sizing: border-box; }
-/* The page keeps its own bounce but never hands a fling on: a page is framed in Hark's /site
-   page, and a fling past its top would otherwise carry on into that page and drag the frame down. */
-html, body { overscroll-behavior-y: contain; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+html, body {
+  overscroll-behavior-y: auto;
+  overscroll-behavior: auto;
+  touch-action: pan-y pinch-zoom;
+}
+html { -webkit-text-size-adjust: 100%; }
 
-/* The page background lives on body and html stays transparent, so the browser paints the whole
-   canvas, and the band a bounce reveals, in body's color, including a page's own override of it. */
 body {
   margin: 0;
   background: var(--fill-primary-on);
   color: var(--text-primary);
   font: var(--type-body);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img { max-width: 100%; display: block; }
